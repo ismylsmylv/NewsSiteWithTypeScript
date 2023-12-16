@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import SearchIcon from "../../img/magnifying-glass-solid.svg";
 import Settings from "../../img/gear-solid.svg";
+import { Link } from "react-router-dom";
 type Props = {};
 
 function Navbar({}: Props) {
@@ -27,8 +28,12 @@ function Navbar({}: Props) {
         </div>
       </div>
       <div className="lowerNavbar container">
-        <button>Home</button>
-        <button>World</button>
+        <button>
+          <Link to={"/"}>Home</Link>
+        </button>
+        <button>
+          <Link to={"/world"}>World</Link>
+        </button>
         <button>Local</button>
         <button>Business</button>
         <button>Technology</button>
