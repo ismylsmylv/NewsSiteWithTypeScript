@@ -42,4 +42,19 @@
         align-items: start;
         justify-content: center;
     }
+
+}
+
+@media (max-width:500px) {
+    .Entertainment {
+        width: 90% !important;
+
+    }
+}
+
+@media (max-width:800px) {
+    .Sport {
+        // width: 60% !important;
+
+    }
 }

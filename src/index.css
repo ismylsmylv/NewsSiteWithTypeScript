@@ -19,3 +19,16 @@ body {
 ::-webkit-scrollbar {
   width: 0px;
 }
+
+@media (max-width: 500px) {
+  .imgCont {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  h1 {
+    font-size: 22px !important;
+  }
+  h2 {
+    font-size: 20px !important;
+  }
+}

@@ -44,31 +44,67 @@ function Navbar({}: Props) {
       </div>
       {checked && (
         <div className="navList">
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/"}>Home</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/world"}>World</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/local"}>Local</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/business"}>Business</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/tech"}>Technology</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/entertainment"}>Entertainment</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/sport"}>Sports</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/science"}>Science</Link>
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
             <Link to={"/health"}>Health</Link>
           </button>
         </div>

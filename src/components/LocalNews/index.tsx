@@ -10,7 +10,7 @@ function LocalNews({}: Props) {
         Local News <img src={ChevronRight} alt="" />
       </div>
       <div className="line"></div>
-      <div className="card">
+      <div className="cardLocal">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku
@@ -26,7 +26,7 @@ function LocalNews({}: Props) {
       </div>
       <div className="line"></div>
 
-      <div className="card">
+      <div className="cardLocal">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku
@@ -42,7 +42,7 @@ function LocalNews({}: Props) {
       </div>
       <div className="line"></div>
 
-      <div className="card">
+      <div className="cardLocal">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku

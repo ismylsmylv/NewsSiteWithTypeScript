@@ -8,7 +8,7 @@ function PicsForYou({}: Props) {
     <div className="PicsForYou">
       <div className="heading">Picks for you</div>
       <div className="line"></div>
-      <div className="card">
+      <div className="cardPicks">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku
@@ -24,7 +24,7 @@ function PicsForYou({}: Props) {
       </div>
       <div className="line"></div>
 
-      <div className="card">
+      <div className="cardPicks">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku
@@ -40,7 +40,7 @@ function PicsForYou({}: Props) {
       </div>
       <div className="line"></div>
 
-      <div className="card">
+      <div className="cardPicks">
         <div className="left">
           <div className="head">
             Third Azerbaijan International Vocal Festival starts in Baku

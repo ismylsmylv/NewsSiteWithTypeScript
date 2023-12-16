@@ -28,3 +28,23 @@
         justify-content: center;
     }
 }
+
+@media (max-width:800px) {
+    .feed {
+        display: block;
+        width: 90%;
+
+        .left,
+        .right {
+            margin: 0 auto;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+    }
+
+    .card {
+        // display: flex !important;
+    }
+
+}

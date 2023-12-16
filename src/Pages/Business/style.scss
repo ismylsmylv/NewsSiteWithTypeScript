@@ -43,3 +43,18 @@
         justify-content: center;
     }
 }
+
+
+@media (max-width:500px) {
+    .Business {
+        width: 90% !important;
+
+    }
+}
+
+@media (max-width:800px) {
+    .Business {
+        // width: 60% !important;
+
+    }
+}

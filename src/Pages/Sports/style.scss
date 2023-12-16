@@ -1,5 +1,5 @@
 .Sport {
-    width: 40% !important;
+    width: 50% !important;
 
     .heading {
         display: flex;
@@ -41,5 +41,20 @@
         flex-direction: column;
         align-items: start;
         justify-content: center;
+    }
+}
+
+
+@media (max-width:500px) {
+    .Sport {
+        width: 90% !important;
+
+    }
+}
+
+@media (max-width:800px) {
+    .Sport {
+        // width: 60% !important;
+
     }
 }
