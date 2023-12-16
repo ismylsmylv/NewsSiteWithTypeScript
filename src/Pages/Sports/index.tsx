@@ -11,7 +11,7 @@ function Sport({}: Props) {
         <div className="imgCont">
           <img src={Ball} alt="" />
         </div>
-        <h1>Sport</h1>
+        <h1>Sports</h1>
       </div>
       <div className="cards ">
         <CardTemplate />

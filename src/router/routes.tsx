@@ -10,6 +10,7 @@ import Science from "../Pages/Science";
 import Sport from "../Pages/Sports";
 import Tech from "../Pages/Technology";
 import Admin from "../Pages/Admin";
+import ForYouPage from "../Pages/Foryou";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/foryou",
+        element: <ForYouPage />,
       },
     ],
   },

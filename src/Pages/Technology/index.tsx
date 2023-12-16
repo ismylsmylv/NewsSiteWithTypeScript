@@ -11,7 +11,7 @@ function Tech({}: Props) {
         <div className="imgCont">
           <img src={Chip} alt="" />
         </div>
-        <h1>Tech</h1>
+        <h1>Technology</h1>
       </div>
       <div className="cards ">
         <CardTemplate />

@@ -88,3 +88,24 @@
         }
     }
 }
+
+@media (max-width:500px) {
+    .container {
+        width: 90%;
+    }
+
+    .heading,
+    .catHeading {
+
+        font-size: 22px !important;
+    }
+
+    .info {
+        font-size: 12px !important
+    }
+
+    .longLine {
+        height: 600px !important;
+
+    }
+}

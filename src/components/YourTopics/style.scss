@@ -92,3 +92,25 @@
     }
 
 }
+
+@media (max-width:700px) {
+    .category {
+        width: 48% !important;
+    }
+
+    .YourTopics .categories .category .heading {
+        font-size: 14px !important;
+    }
+
+    .head {
+        font-size: 12px !important;
+    }
+
+    .YourTopics .categories .category .card .right img {
+        display: none;
+    }
+
+    .YourTopics .categories .category {
+        margin-bottom: 10px;
+    }
+}
