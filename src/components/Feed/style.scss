@@ -1,7 +1,7 @@
 .feed {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 
     .left {
         width: 70%;
@@ -20,10 +20,8 @@
     .right {
         // border: 1px solid red;
         width: 30%;
-        border-radius: 18px;
-        background-color: rgb(31, 31, 31);
+
         color: rgb(255, 255, 255);
-        padding: 16px;
         display: flex;
         flex-direction: column;
         align-items: start;
