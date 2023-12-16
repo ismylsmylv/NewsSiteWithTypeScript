@@ -1,4 +1,4 @@
-.forYou {
+.beyond {
     margin-top: 20px !important;
 
     .heading {
@@ -43,7 +43,7 @@
 
         .longLine {
             width: 1px;
-            height: 330px;
+            height: 200px;
             background-color: rgb(94, 94, 94);
             margin: 0 16px 0 16px;
         }
@@ -66,10 +66,22 @@
                     width: 100%;
                 }
 
-                .date {
-                    color: rgb(196, 199, 197);
-                    font-size: 12px;
-                    margin: 10px 0;
+                .footer {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+
+                    .date {
+                        color: rgb(196, 199, 197);
+                        font-size: 12px;
+                        margin-right: 10px;
+                    }
+
+                    .author {
+                        color: rgb(196, 199, 197);
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
                 }
             }
 
@@ -87,4 +99,8 @@
             }
         }
     }
+
+
+
+
 }
