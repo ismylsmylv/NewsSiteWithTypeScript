@@ -1,7 +1,7 @@
 .navbar {
     background-color: #202124;
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
 
@@ -93,12 +93,11 @@
             border-right: none;
 
             &:active {
-                color: rgb(138, 180, 248);
                 border: 4px solid rgb(138, 180, 248);
                 border-top: none;
                 border-left: none;
                 border-right: none;
-                color: rgb(138, 180, 248);
+                color: rgb(138, 180, 248) !important;
             }
 
             &:hover {

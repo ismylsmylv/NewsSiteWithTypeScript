@@ -1,7 +1,7 @@
 import React from "react";
-import "./Navbar.scss";
-import SearchIcon from "../img/magnifying-glass-solid.svg";
-import Settings from "../img/gear-solid.svg";
+import "./style.scss";
+import SearchIcon from "../../img/magnifying-glass-solid.svg";
+import Settings from "../../img/gear-solid.svg";
 type Props = {};
 
 function Navbar({}: Props) {
