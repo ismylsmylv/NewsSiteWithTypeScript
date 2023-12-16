@@ -41,6 +41,9 @@
                 outline: none;
                 transition: 300ms linear;
                 border: none;
+                color: white;
+                font-size: 16px;
+                font-weight: 500;
 
                 &:active {
                     background-color: #363738;
@@ -100,8 +103,8 @@
                 color: rgb(138, 180, 248) !important;
             }
 
-            &:hover {
-                color: #fff;
+            a:hover {
+                color: #fff !important;
             }
 
             a {

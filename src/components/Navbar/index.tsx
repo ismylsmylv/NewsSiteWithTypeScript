@@ -10,7 +10,10 @@ function Navbar({}: Props) {
     <div className="navbar">
       <div className="upperNavbar">
         <div className="logo">
-          <h2>Google News</h2>
+          <Link to={"/"}>
+            {" "}
+            <h2>Google News </h2>
+          </Link>
         </div>
         <div className="searchBar ">
           <div className="icon">
@@ -22,9 +25,10 @@ function Navbar({}: Props) {
           />
         </div>
         <div className="admin">
-          <a href="">
+          <Link to={"/admin"}>
+            {" "}
             <img src={Settings} alt="" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="lowerNavbar container">
@@ -34,13 +38,27 @@ function Navbar({}: Props) {
         <button>
           <Link to={"/world"}>World</Link>
         </button>
-        <button>Local</button>
-        <button>Business</button>
-        <button>Technology</button>
-        <button>Entertainment</button>
-        <button>Sports</button>
-        <button>Science</button>
-        <button>Health</button>
+        <button>
+          <Link to={"/local"}>Local</Link>
+        </button>
+        <button>
+          <Link to={"/business"}>Business</Link>
+        </button>
+        <button>
+          <Link to={"/tech"}>Technology</Link>
+        </button>
+        <button>
+          <Link to={"/entertainment"}>Entertainment</Link>
+        </button>
+        <button>
+          <Link to={"/sport"}>Sports</Link>
+        </button>
+        <button>
+          <Link to={"/science"}>Science</Link>
+        </button>
+        <button>
+          <Link to={"/health"}>Health</Link>
+        </button>
       </div>
     </div>
   );
