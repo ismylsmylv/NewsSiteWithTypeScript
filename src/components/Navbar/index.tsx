@@ -1,11 +1,13 @@
-import React from "react";
-import "./style.scss";
-import SearchIcon from "../../img/magnifying-glass-solid.svg";
-import Settings from "../../img/gear-solid.svg";
 import { Link } from "react-router-dom";
+import Settings from "../../img/gear-solid.svg";
+import SearchIcon from "../../img/magnifying-glass-solid.svg";
+import "./style.scss";
+import Bars from "../../img/bars-solid.svg";
+import { useState } from "react";
 type Props = {};
 
 function Navbar({}: Props) {
+  const [checked, setchecked] = useState(false);
   return (
     <div className="navbar">
       <div className="upperNavbar">
@@ -30,8 +32,48 @@ function Navbar({}: Props) {
             <img src={Settings} alt="" />
           </Link>
         </div>
+        <div className="navMobile">
+          <button
+            onClick={() => {
+              setchecked(!checked);
+            }}
+          >
+            <img src={Bars} alt="" />
+          </button>
+        </div>
       </div>
-      <div className="lowerNavbar container">
+      {checked && (
+        <div className="navList">
+          <button>
+            <Link to={"/"}>Home</Link>
+          </button>
+          <button>
+            <Link to={"/world"}>World</Link>
+          </button>
+          <button>
+            <Link to={"/local"}>Local</Link>
+          </button>
+          <button>
+            <Link to={"/business"}>Business</Link>
+          </button>
+          <button>
+            <Link to={"/tech"}>Technology</Link>
+          </button>
+          <button>
+            <Link to={"/entertainment"}>Entertainment</Link>
+          </button>
+          <button>
+            <Link to={"/sport"}>Sports</Link>
+          </button>
+          <button>
+            <Link to={"/science"}>Science</Link>
+          </button>
+          <button>
+            <Link to={"/health"}>Health</Link>
+          </button>
+        </div>
+      )}
+      <div className="lowerNavbar">
         <button>
           <Link to={"/"}>Home</Link>
         </button>
