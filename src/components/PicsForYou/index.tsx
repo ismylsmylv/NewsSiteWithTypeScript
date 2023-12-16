@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid green.svg";
+import ChevronRight from "../../img/chevron-right-solid white.svg";
 type Props = {};
 
 function PicsForYou({}: Props) {
