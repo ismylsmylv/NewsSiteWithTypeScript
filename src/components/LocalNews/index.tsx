@@ -12,7 +12,6 @@ function LocalNews({ news }: Props) {
       <div className="heading">
         Local News <img src={ChevronRight} alt="" />
       </div>
-      <div className="line"></div>
       {news &&
         news.map((elem) => {
           {
@@ -33,6 +32,8 @@ function LocalNews({ news }: Props) {
             localCount++;
             return (
               <div key={uuidv4()}>
+                <div className="line"></div>
+
                 <div className="cardLocal">
                   <div className="left">
                     <div className="head">{elem.title}</div>
@@ -45,7 +46,7 @@ function LocalNews({ news }: Props) {
                     />
                   </div>
                 </div>
-                <div className="line"></div>
+                {/* <div className="line"></div> */}
               </div>
             );
           }

@@ -29,6 +29,8 @@ function CardTemplate({ elem }: Props) {
   }
   return (
     <div className="CardTemplate">
+      <div className="line"></div>
+
       <div className="card">
         <div className="left">
           <img
@@ -67,7 +69,6 @@ function CardTemplate({ elem }: Props) {
           <div className="content">{elem.text}</div>
         </div>
       </div>
-      <div className="line"></div>
     </div>
   );
 }

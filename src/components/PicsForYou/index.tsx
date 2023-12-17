@@ -10,7 +10,6 @@ function PicsForYou({ news }: Props) {
   return (
     <div className="PicsForYou" style={{ width: "100%" }}>
       <div className="heading">Picks for you</div>
-      <div className="line"></div>
       {news &&
         news.map((elem) => {
           {
@@ -31,6 +30,8 @@ function PicsForYou({ news }: Props) {
             pickCount++;
             return (
               <div key={uuidv4()}>
+                <div className="line"></div>
+
                 <div className="cardPicks">
                   <div className="left">
                     <div className="head">{elem.title}</div>
@@ -43,7 +44,7 @@ function PicsForYou({ news }: Props) {
                     />
                   </div>
                 </div>
-                <div className="line"></div>
+                {/* <div className="line"></div> */}
               </div>
             );
           }

@@ -18,7 +18,7 @@ function TopStories({ news }: Props) {
       <div className="heading">
         <p> Top stories</p> <img src={ChevronRight} alt="" />
       </div>
-      <div className="line"></div>
+      {/* <div className="line"></div> */}
 
       {/* cards */}
 

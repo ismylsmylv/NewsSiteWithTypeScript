@@ -37,8 +37,8 @@ const Home = (props: Props) => {
       <Welcome />
       <Feed news={news} />
       <ForYou news={news} />
-      <YourTopics />
-      <Beyond />
+      <YourTopics news={news} />
+      <Beyond news={news} />
       <More />
     </div>
   );
