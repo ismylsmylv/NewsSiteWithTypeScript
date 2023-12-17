@@ -7,6 +7,7 @@ import Beyond from "../../components/Beyond";
 import More from "../../components/More";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+
 import { useState } from "react";
 import { RootState } from "../../redux/store/store";
 
