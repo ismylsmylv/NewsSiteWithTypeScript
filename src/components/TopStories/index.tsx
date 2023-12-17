@@ -11,6 +11,7 @@ import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 type Props = { news: object[] };
 
 function TopStories({ news }: Props) {
+  let topCount: num = 0;
   return (
     <div className="topStories container">
       <div className="heading">
@@ -22,7 +23,8 @@ function TopStories({ news }: Props) {
 
       {news &&
         news.map((elem) => {
-          if (elem.category == "topStory") {
+          if (elem.category == "topStory" && topCount < 3) {
+            topCount++;
             return <CardTemplate elem={elem} key={elem.id} />;
           }
         })}

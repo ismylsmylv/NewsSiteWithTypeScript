@@ -5,6 +5,7 @@ type Props = {};
 
 function PicsForYou({ news }: Props) {
   let formattedDate;
+  let pickCount: number = 0;
   return (
     <div className="PicsForYou" style={{ width: "100%" }}>
       <div className="heading">Picks for you</div>
@@ -25,7 +26,8 @@ function PicsForYou({ news }: Props) {
 
             formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
           }
-          if (elem.category == "picked") {
+          if (elem.category == "picked" && pickCount < 3) {
+            pickCount++;
             return (
               <div key={elem.id}>
                 <div className="cardPicks">

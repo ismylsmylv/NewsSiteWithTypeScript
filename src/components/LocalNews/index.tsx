@@ -5,7 +5,7 @@ type Props = {};
 
 function LocalNews({ news }: Props) {
   let formattedDate;
-
+  let localCount: number = 0;
   return (
     <div className="localNews" style={{ width: "100%" }}>
       <div className="heading">
@@ -28,7 +28,8 @@ function LocalNews({ news }: Props) {
 
             formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
           }
-          if (elem.category == "local") {
+          if (elem.category == "local" && localCount < 3) {
+            localCount++;
             return (
               <div key={elem.id}>
                 <div className="cardLocal">
