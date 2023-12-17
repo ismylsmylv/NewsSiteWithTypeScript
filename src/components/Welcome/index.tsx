@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import Sun from "../../img/sunImg.png";
+import Sun from "../../img/weatherIcon.png";
 type Props = {};
 //https://api.weatherapi.com/v1/current.json?key=c6f347ddedc94f69a8a210804231612&q=Baku&aqi=no
 function Welcome({}: Props) {
@@ -11,10 +11,14 @@ function Welcome({}: Props) {
         <div className="date">Saturday, December 16</div>
       </div>
       <div className="right">
-        <div className="weather">
+        <a
+          href="https://www.accuweather.com/"
+          className="weather"
+          style={{ color: "white", cursor: "pointer" }}
+        >
           <img src={Sun} alt="" />
           <p>Your local weather 5°C</p>
-        </div>
+        </a>
       </div>
     </div>
   );
