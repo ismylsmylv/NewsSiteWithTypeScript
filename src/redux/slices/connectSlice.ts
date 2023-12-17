@@ -25,6 +25,13 @@ export const getnews = createAsyncThunk("getnews", async () => {
   return response.data;
 });
 
+export const getId = createAsyncThunk("getId", async (id) => {
+  const response = await axios(
+    "https://6576df5f197926adf62ca419.mockapi.io/news/" + id
+  );
+  return response.data;
+});
+
 export const connectSlice = createSlice({
   name: "connect",
   initialState,
@@ -45,6 +52,20 @@ export const connectSlice = createSlice({
       //   console.log(state.news);
     });
     builder.addCase(getnews.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    // getId
+    builder.addCase(getId.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getId.fulfilled, (state, action) => {
+      state.loading = false;
+      state.news = action.payload;
+      state.backnews = action.payload;
+      //   console.log(state.news);
+    });
+    builder.addCase(getId.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });

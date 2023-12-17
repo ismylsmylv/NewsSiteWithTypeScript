@@ -43,7 +43,13 @@ function LocalNews({ news }: Props) {
               <div key={uuidv4()}>
                 <div className="line"></div>
 
-                <div className="cardLocal">
+                <div
+                  className="cardLocal"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    console.log(elem.id);
+                  }}
+                >
                   <div className="left">
                     <div className="head">{elem.title}</div>
                     <div className="date">{formattedDate}</div>

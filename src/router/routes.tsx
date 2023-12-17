@@ -11,6 +11,7 @@ import Sport from "../Pages/Sports";
 import Tech from "../Pages/Technology";
 import Admin from "../Pages/Admin";
 import ForYouPage from "../Pages/Foryou";
+import Details from "../Pages/Details";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/foryou",
         element: <ForYouPage />,
+      },
+      {
+        path: "/details",
+        element: <Details />,
       },
     ],
   },
