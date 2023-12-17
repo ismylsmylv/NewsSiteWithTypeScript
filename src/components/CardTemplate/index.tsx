@@ -9,6 +9,23 @@ import Views from "../../img/eye-regular.svg";
 type Props = { elem: object[] };
 
 function CardTemplate({ elem }: Props) {
+  let formattedDate;
+
+  {
+    const unixTimestamp = elem.date;
+    const milliseconds = unixTimestamp * 1000;
+
+    const dateObject = new Date(milliseconds);
+
+    const year = dateObject.getFullYear();
+    const month = dateObject.getMonth() + 1;
+    const day = dateObject.getDate();
+    const hours = dateObject.getHours();
+    const minutes = dateObject.getMinutes();
+
+    formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
+    console.log(formattedDate);
+  }
   return (
     <div className="CardTemplate">
       <div className="card">
@@ -21,7 +38,7 @@ function CardTemplate({ elem }: Props) {
             <p>{elem.title}</p>
           </div>
           <div className="details">
-            <div className="date detail">{elem.date}</div>
+            <div className="date detail">{formattedDate}</div>
             <div className="dislikes detail">
               <img src={Views} alt="" />
               {elem.views}
@@ -38,9 +55,9 @@ function CardTemplate({ elem }: Props) {
         </div>
         <div className="right">
           <div className="authors">
-            <div className="author">Nicholas Sparks</div>
-            <div className="author">Dan Brown</div>
-            <div className="author">James Patterson</div>
+            {elem.authors.map((auth) => {
+              return <div className="author">{auth}</div>;
+            })}
           </div>
           <div className="content">{elem.text}</div>
         </div>

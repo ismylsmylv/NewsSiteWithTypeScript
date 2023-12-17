@@ -4,6 +4,8 @@ import ChevronRight from "../../img/chevron-right-solid green.svg";
 type Props = {};
 
 function LocalNews({ news }: Props) {
+  let formattedDate;
+
   return (
     <div className="localNews" style={{ width: "100%" }}>
       <div className="heading">
@@ -12,13 +14,27 @@ function LocalNews({ news }: Props) {
       <div className="line"></div>
       {news &&
         news.map((elem) => {
+          {
+            const unixTimestamp = elem.date;
+            const milliseconds = unixTimestamp * 1000;
+
+            const dateObject = new Date(milliseconds);
+
+            const year = dateObject.getFullYear();
+            const month = dateObject.getMonth() + 1;
+            const day = dateObject.getDate();
+            const hours = dateObject.getHours();
+            const minutes = dateObject.getMinutes();
+
+            formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
+          }
           if (elem.category == "local") {
             return (
               <div key={elem.id}>
                 <div className="cardLocal">
                   <div className="left">
                     <div className="head">{elem.title}</div>
-                    <div className="date">{elem.date}</div>
+                    <div className="date">{formattedDate}</div>
                   </div>
                   <div className="right">
                     <img
