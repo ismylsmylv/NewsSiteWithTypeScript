@@ -11,7 +11,7 @@ type Props = {};
 
 function TopStories({}: Props) {
   return (
-    <div className="topStories">
+    <div className="topStories container">
       <div className="heading">
         <p> Top stories</p> <img src={ChevronRight} alt="" />
       </div>

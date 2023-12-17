@@ -1,6 +1,7 @@
 .topStories {
     width: 100%;
 
+
     .heading {
         display: flex;
         align-items: center;
@@ -114,4 +115,9 @@
 }
 
 
-@media (max-width:800px) {}
+@media (max-width:800px) {
+    .topStories {
+        margin-bottom: 10px !important;
+
+    }
+}

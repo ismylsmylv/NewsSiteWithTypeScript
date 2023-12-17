@@ -20,7 +20,7 @@
 
 
 
-    .cards {
+    .cardsBeyond {
         padding: 16px;
         border-radius: 18px;
         background-color: rgb(31, 31, 31);
@@ -28,6 +28,10 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        position: relative;
+        margin-bottom: 10px;
+        transition: 300ms linear;
+        cursor: pointer;
 
         .left,
         .right {
@@ -48,11 +52,16 @@
             margin: 0 16px 0 16px;
         }
 
-        .card {
+        .cardBeyond {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            position: relative;
+
+
+            // background-image: url("https://i0.wp.com/www.alphr.com/wp-content/uploads/2022/08/How-to-Find-Out-Where-a-Picture-Was-Taken-1.png?fit=1200%2C675&ssl=1");
+
 
             .left {
                 padding: 0;
@@ -60,10 +69,13 @@
                 flex-direction: column;
                 align-items: start;
                 justify-content: space-between;
+                width: 100%;
 
                 .head {
-                    color: rgb(227, 227, 227);
+                    color: white;
                     width: 100%;
+                    transition: 200ms linear;
+
                 }
 
                 .footer {
@@ -72,15 +84,18 @@
                     margin-top: 10px;
 
                     .date {
-                        color: rgb(196, 199, 197);
+                        color: white;
                         font-size: 12px;
                         margin-right: 10px;
+
                     }
 
                     .author {
-                        color: rgb(196, 199, 197);
+                        color: white;
                         font-size: 12px;
                         font-weight: 500;
+                        transition: 200ms linear;
+
                     }
                 }
             }
@@ -98,9 +113,42 @@
                 }
             }
         }
+
     }
 
+    .darkOverlay {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        border-radius: 18px;
+        transition: 200ms linear;
 
 
+    }
+}
 
+.cardsBeyond:hover {
+    .darkOverlay {
+
+        background: #000000b9;
+    }
+
+    // .author {
+    //     font-weight: 600 !important;
+    // }
+
+    .head {
+        color: rgb(138, 180, 248) !important
+    }
+}
+
+@media (min-width:800px) {
+    .cardsBeyond {
+        min-height: 150px !important;
+    }
 }

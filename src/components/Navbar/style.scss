@@ -4,6 +4,7 @@
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 900;
 
     .upperNavbar {
         display: flex;
@@ -19,7 +20,8 @@
         }
 
 
-        .searchBar {
+        .searchBar,
+        .searchMobileBar {
             background-color: #3C4043;
             height: 45px;
             width: 40%;
@@ -196,6 +198,7 @@ body {
         cursor: pointer;
         line-height: 27px;
         margin: 0 5px;
+        transition: 300ms linear;
 
         &:active {
             color: rgb(138, 180, 248) !important;
@@ -213,4 +216,68 @@ body {
             }
         }
     }
+}
+
+.searchMobileBar {
+    background-color: #3C4043;
+    height: 36px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    justify-content: space-around;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    .icon {
+        padding: 8px;
+    }
+
+    margin-bottom: 10px;
+
+    input {
+        background-color: transparent;
+        height: 100%;
+        width: 90%;
+        outline: none;
+        transition: 300ms linear;
+        border: none;
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+
+        &:active {
+            background-color: #363738;
+            color: #3C4043;
+        }
+
+        &::placeholder {
+            color: #B4B6B7;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+}
+
+.catBtns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link.active {
+    // padding-bottom: 9px;
+    border-bottom: 4px solid rgb(138, 180, 248);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(138, 180, 248) !important;
+    // font-weight: 600;
+}
+
+.link {
+    // transition: 100ms linear;
+    border: none;
+    border-bottom: 4px solid transparent
 }

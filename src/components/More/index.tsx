@@ -8,7 +8,7 @@ function More({}: Props) {
     <div className="more">
       <h1>Get more news based on your interests</h1>
       <button>
-        <Link to={"/foryou"}>Discover</Link>
+        <Link to={"/foryou"}>For you</Link>
       </button>
     </div>
   );

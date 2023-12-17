@@ -4,6 +4,8 @@ import ChevronRight from "../../img/chevron-right-solid.svg";
 type Props = {};
 
 function Beyond({}: Props) {
+  const url =
+    "https://i0.wp.com/www.alphr.com/wp-content/uploads/2022/08/How-to-Find-Out-Where-a-Picture-Was-Taken-1.png?fit=1200%2C675&ssl=1";
   return (
     <div className="beyond container">
       <div className="heading">
@@ -11,79 +13,68 @@ function Beyond({}: Props) {
         <img src={ChevronRight} alt="" />
       </div>
       <div className="info">Notable stories and conversation starters</div>
-      <div className="cards">
-        <div className="left">
-          <div className="card">
-            <div className="left">
-              <div className="head">
-                Third Azerbaijan International Vocal Festival starts in Baku
-              </div>
-              <div className="footer">
-                <div className="date">Yesterday</div>
-                <div className="author">Nicholas Sparks</div>
-              </div>
+      <div
+        className="cardsBeyond"
+        style={{
+          backgroundImage: `url(${url})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="darkOverlay"></div>
+        <div className="cardBeyond">
+          <div className="left">
+            <div className="head">
+              Third Azerbaijan International Vocal Festival starts in Baku
             </div>
-            <div className="right">
-              <img
-                src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="line"></div>
-          <div className="card">
-            <div className="left">
-              <div className="head">
-                Third Azerbaijan International Vocal Festival starts in Baku
-              </div>
-              <div className="footer">
-                <div className="date">Yesterday</div>
-                <div className="author">Nicholas Sparks</div>
-              </div>
-            </div>
-            <div className="right">
-              <img
-                src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                alt=""
-              />
+            <div className="footer">
+              <div className="date">Yesterday</div>
+              <div className="author">Nicholas Sparks</div>
             </div>
           </div>
         </div>
-        <div className="longLine"></div>
-        <div className="right">
-          <div className="card">
-            <div className="left">
-              <div className="head">
-                Third Azerbaijan International Vocal Festival starts in Baku
-              </div>
-              <div className="footer">
-                <div className="date">Yesterday</div>
-                <div className="author">Nicholas Sparks</div>
-              </div>
+      </div>
+      <div
+        className="cardsBeyond"
+        style={{
+          backgroundImage: `url(${url})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="darkOverlay"></div>
+        <div className="cardBeyond">
+          <div className="left">
+            <div className="head">
+              Third Azerbaijan International Vocal Festival starts in Baku
             </div>
-            <div className="right">
-              <img
-                src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                alt=""
-              />
+            <div className="footer">
+              <div className="date">Yesterday</div>
+              <div className="author">Nicholas Sparks</div>
             </div>
           </div>
-          <div className="line"></div>
-          <div className="card">
-            <div className="left">
-              <div className="head">
-                Third Azerbaijan International Vocal Festival starts in Baku
-              </div>
-              <div className="footer">
-                <div className="date">Yesterday</div>
-                <div className="author">Nicholas Sparks</div>
-              </div>
+        </div>
+      </div>
+      <div
+        className="cardsBeyond"
+        style={{
+          backgroundImage: `url(${url})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="darkOverlay"></div>
+        <div className="cardBeyond">
+          <div className="left">
+            <div className="head">
+              Third Azerbaijan International Vocal Festival starts in Baku
             </div>
-            <div className="right">
-              <img
-                src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                alt=""
-              />
+            <div className="footer">
+              <div className="date">Yesterday</div>
+              <div className="author">Nicholas Sparks</div>
             </div>
           </div>
         </div>
