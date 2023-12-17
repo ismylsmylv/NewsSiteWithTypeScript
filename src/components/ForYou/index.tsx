@@ -49,14 +49,11 @@ function ForYou({ news }: Props) {
                   <div key={uuidv4()}>
                     <div className="card">
                       <div className="left">
-                        <div className="head">picked</div>
+                        <div className="head">{elem.title}</div>
                         <div className="date">{formattedDateRight}</div>
                       </div>
                       <div className="right">
-                        <img
-                          src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                          alt=""
-                        />
+                        <img src={elem.image} alt="" />
                       </div>
                     </div>
                     <div className="line"></div>
@@ -93,14 +90,11 @@ function ForYou({ news }: Props) {
                   <div key={uuidv4()}>
                     <div className="card">
                       <div className="left">
-                        <div className="head">picked</div>
+                        <div className="head">{elem.title}</div>
                         <div className="date">{formattedDateLeft}</div>
                       </div>
                       <div className="right">
-                        <img
-                          src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                          alt=""
-                        />
+                        <img src={elem.image} alt="" />
                       </div>
                     </div>
                     <div className="line"></div>

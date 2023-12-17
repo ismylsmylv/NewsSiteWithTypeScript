@@ -40,10 +40,7 @@ function LocalNews({ news }: Props) {
                     <div className="date">{formattedDate}</div>
                   </div>
                   <div className="right">
-                    <img
-                      src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
-                      alt=""
-                    />
+                    <img src={elem.image} alt="" />
                   </div>
                 </div>
                 {/* <div className="line"></div> */}

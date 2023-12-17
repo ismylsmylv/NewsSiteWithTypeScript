@@ -55,18 +55,18 @@ function Beyond({ news }: Props) {
                     <div className="footer">
                       <div className="date">{formattedDate}</div>
                       <div className="author" style={{ display: "flex" }}>
-                        {" "}
+                        {/* {" "}
                         {elem.authors.map((auth) => {
-                          return (
-                            <div
-                              className="author"
-                              key={uuidv4()}
-                              style={{ marginRight: "10px" }}
-                            >
-                              {auth}
-                            </div>
-                          );
-                        })}
+                          return ( */}
+                        <div
+                          className="author"
+                          key={uuidv4()}
+                          style={{ marginRight: "10px" }}
+                        >
+                          {elem.authors}
+                        </div>
+                        {/* ); */}
+                        {/* })} */}
                       </div>
                     </div>
                   </div>
