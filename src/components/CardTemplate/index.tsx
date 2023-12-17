@@ -6,9 +6,9 @@ import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
 import Views from "../../img/eye-regular.svg";
-type Props = {};
+type Props = { elem: object[] };
 
-function CardTemplate({}: Props) {
+function CardTemplate({ elem }: Props) {
   return (
     <div className="CardTemplate">
       <div className="card">
@@ -18,18 +18,21 @@ function CardTemplate({}: Props) {
             alt=""
           />
           <div className="heading">
-            Rudy Giuliani ordered to pay $148 million to Georgia poll workers
+            <p>{elem.title}</p>
           </div>
           <div className="details">
-            <div className="date detail">12 november</div>
+            <div className="date detail">{elem.date}</div>
             <div className="dislikes detail">
-              <img src={Views} alt="" /> 500
+              <img src={Views} alt="" />
+              {elem.views}
             </div>
             <div className="views detail like">
-              <img src={ThumbUpEmp} alt="" /> 3.5K
+              <img src={ThumbUpEmp} alt="" />
+              {elem.likes}
             </div>
             <div className="likes detail dislike">
-              <img src={ThumbDownEmp} alt="" /> 1K
+              <img src={ThumbDownEmp} alt="" />
+              {elem.dislikes}
             </div>
           </div>
         </div>
@@ -39,13 +42,7 @@ function CardTemplate({}: Props) {
             <div className="author">Dan Brown</div>
             <div className="author">James Patterson</div>
           </div>
-          <div className="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            recusandae, cumque quae ea libero magni voluptatum praesentium
-            voluptas volti placeat commodi sint ea, ex perspiciatis! Libero
-            voluptate dolores cupiditate, modi id voluptates nihil fuga
-            accusamus.
-          </div>
+          <div className="content">{elem.text}</div>
         </div>
       </div>
       <div className="line"></div>

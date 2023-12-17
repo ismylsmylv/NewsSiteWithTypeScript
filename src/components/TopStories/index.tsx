@@ -7,9 +7,10 @@ import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
 import Views from "../../img/eye-regular.svg";
 import CardTemplate from "../CardTemplate";
-type Props = {};
+import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
+type Props = { news: object[] };
 
-function TopStories({}: Props) {
+function TopStories({ news }: Props) {
   return (
     <div className="topStories container">
       <div className="heading">
@@ -18,9 +19,13 @@ function TopStories({}: Props) {
       <div className="line"></div>
 
       {/* cards */}
-      <CardTemplate />
-      <CardTemplate />
-      <CardTemplate />
+
+      {news &&
+        news.map((elem) => {
+          return <CardTemplate elem={elem} key={elem.id} />;
+        })}
+      {/* <CardTemplate />
+      <CardTemplate /> */}
     </div>
   );
 }

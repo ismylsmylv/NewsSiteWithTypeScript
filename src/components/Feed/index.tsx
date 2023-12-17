@@ -3,13 +3,13 @@ import "./style.scss";
 import TopStories from "../TopStories";
 import LocalNews from "../LocalNews";
 import PicsForYou from "../PicsForYou";
-type Props = {};
+type Props = { news: object[] };
 
-function Feed({}: Props) {
+function Feed({ news }: Props) {
   return (
     <div className="feed container">
       <div className="left">
-        <TopStories />
+        <TopStories news={news} />
       </div>
       <div className="right">
         <LocalNews />
