@@ -39,6 +39,50 @@ export const connectSlice = createSlice({
     getNews: (state, action: PayloadAction<object[]>) => {
       console.log(state.news);
     },
+    like: (state, action) => {
+      console.log(action.payload);
+      const updLike: number = action.payload.likes + 1;
+      const obj = {
+        authors: action.payload.authors,
+        category: action.payload.category,
+        date: action.payload.date,
+        dislikes: action.payload.dislikes,
+        id: action.payload.id,
+        image: action.payload.image,
+        likes: updLike,
+        text: action.payload.text,
+        title: action.payload.title,
+        topic: action.payload.topic,
+        views: action.payload.views9,
+      };
+      console.log(obj);
+      axios.put(
+        "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id,
+        obj
+      );
+    },
+    dislike: (state, action) => {
+      console.log(action.payload);
+      const updDislike: number = action.payload.dislikes - 1;
+      const obj = {
+        authors: action.payload.authors,
+        category: action.payload.category,
+        date: action.payload.date,
+        dislikes: updDislike,
+        id: action.payload.id,
+        image: action.payload.image,
+        likes: action.payload.likes,
+        text: action.payload.text,
+        title: action.payload.title,
+        topic: action.payload.topic,
+        views: action.payload.views9,
+      };
+      console.log(obj);
+      axios.put(
+        "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id,
+        obj
+      );
+    },
   },
 
   extraReducers: (builder) => {
@@ -73,7 +117,7 @@ export const connectSlice = createSlice({
 });
 
 //export
-export const { getNews } = connectSlice.actions;
+export const { getNews, like, dislike } = connectSlice.actions;
 
 // export const selectCount = (state: RootState) => state.connect.value;
 

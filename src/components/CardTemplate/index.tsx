@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid.svg";
 import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
@@ -7,11 +7,18 @@ import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
 import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
+import { like, dislike } from "../../redux/slices/connectSlice";
+import { useAppDispatch } from "../../redux/hooks/hooks";
 type Props = { elem: object[] };
 
 function CardTemplate({ elem }: Props) {
   let formattedDate;
-
+  const [likes, setlikes] = useState(elem.likes);
+  const [liked, setliked] = useState(false);
+  const [dislikes, setdislikes] = useState(elem.dislikes);
+  const [disliked, setdisliked] = useState(false);
+  console.log(likes);
+  const dispatch = useAppDispatch();
   {
     const unixTimestamp = elem.date;
     const milliseconds = unixTimestamp * 1000;
@@ -31,7 +38,12 @@ function CardTemplate({ elem }: Props) {
     <div className="CardTemplate">
       <div className="line"></div>
 
-      <div className="card">
+      <div
+        className="card"
+        onClick={() => {
+          console.log(elem.id);
+        }}
+      >
         <div className="left">
           <img src={elem.image} alt="" />
           <div className="heading">
@@ -40,16 +52,36 @@ function CardTemplate({ elem }: Props) {
           <div className="details">
             <div className="date detail">{formattedDate}</div>
             <div className="dislikes detail">
-              <img src={Views} alt="" />
+              <img src={Views} alt="" style={{ width: "auto" }} />
               {elem.views}
             </div>
-            <div className="views detail like">
-              <img src={ThumbUpEmp} alt="" />
-              {elem.likes}
+            <div
+              className="views detail like"
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(like(elem));
+                let liked = elem.likes;
+                setlikes(liked + 1);
+                setliked(true);
+                setdisliked(false);
+              }}
+            >
+              <img src={liked ? ThumbUpFill : ThumbUpEmp} alt="" />
+              {likes}
             </div>
-            <div className="likes detail dislike">
-              <img src={ThumbDownEmp} alt="" />
-              {elem.dislikes}
+            <div
+              className="likes detail dislike"
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(dislike(elem));
+                let disliked = elem.dislikes;
+                setdislikes(disliked - 1);
+                setdisliked(true);
+                setliked(false);
+              }}
+            >
+              <img src={disliked ? ThumbDownFill : ThumbDownEmp} alt="" />
+              {dislikes}
             </div>
           </div>
         </div>
