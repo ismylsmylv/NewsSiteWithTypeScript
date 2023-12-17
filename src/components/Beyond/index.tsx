@@ -33,46 +33,45 @@ function Beyond({ news }: Props) {
             const minutes = dateObject.getMinutes();
 
             formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-            console.log(formattedDate);
+            // console.log(formattedDate);
           }
           if (elem.topic == "beyond" && beyCount < 3) {
             beyCount++;
             return (
-              <>
-                <div
-                  className="cardsBeyond"
-                  style={{
-                    backgroundImage: `url(${elem.image})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
-                  <div className="darkOverlay"></div>
-                  <div className="cardBeyond">
-                    <div className="left">
-                      <div className="head">{elem.title}</div>
-                      <div className="footer">
-                        <div className="date">{formattedDate}</div>
-                        <div className="author" style={{ display: "flex" }}>
-                          {" "}
-                          {elem.authors.map((auth) => {
-                            return (
-                              <div
-                                className="author"
-                                key={uuidv4()}
-                                style={{ marginRight: "10px" }}
-                              >
-                                {auth}
-                              </div>
-                            );
-                          })}
-                        </div>
+              <div
+                className="cardsBeyond"
+                style={{
+                  backgroundImage: `url(${elem.image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+                key={uuidv4()}
+              >
+                <div className="darkOverlay"></div>
+                <div className="cardBeyond">
+                  <div className="left">
+                    <div className="head">{elem.title}</div>
+                    <div className="footer">
+                      <div className="date">{formattedDate}</div>
+                      <div className="author" style={{ display: "flex" }}>
+                        {" "}
+                        {elem.authors.map((auth) => {
+                          return (
+                            <div
+                              className="author"
+                              key={uuidv4()}
+                              style={{ marginRight: "10px" }}
+                            >
+                              {auth}
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             );
           }
         })}

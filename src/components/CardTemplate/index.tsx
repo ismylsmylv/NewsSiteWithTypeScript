@@ -25,7 +25,7 @@ function CardTemplate({ elem }: Props) {
     const minutes = dateObject.getMinutes();
 
     formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-    console.log(formattedDate);
+    // console.log(formattedDate);
   }
   return (
     <div className="CardTemplate">

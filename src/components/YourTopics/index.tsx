@@ -245,7 +245,7 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                console.log(formattedDate);
+                // console.log(formattedDate);
               }
               if (elem.topic == "sports" && spoCount < 3) {
                 spoCount++;
