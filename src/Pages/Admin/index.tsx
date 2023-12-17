@@ -227,7 +227,6 @@ function Admin({}: Props) {
                     <button
                       onClick={() => {
                         dispatch(deleteNews(elem.id));
-                        news = news.filter((element) => element.id != elem.id);
                       }}
                     >
                       Delete

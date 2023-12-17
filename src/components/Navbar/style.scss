@@ -281,3 +281,23 @@ body {
     border: none;
     border-bottom: 4px solid transparent
 }
+
+.searchBar {
+    position: relative;
+}
+
+.results {
+    position: absolute;
+    left: 0px;
+    top: 38px;
+    width: 100%;
+    background-color: #3C4043;
+
+
+}
+
+ul li {
+    list-style: none;
+    color: #E2E2E3;
+    padding: 5px;
+}

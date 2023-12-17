@@ -85,8 +85,21 @@ export const connectSlice = createSlice({
     },
     deleteNews: (state, action) => {
       console.log(action.payload);
-      // axios.delete(
-      //   "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id);
+      axios.delete(
+        "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload
+      );
+    },
+    searchNews: (state, action) => {
+      console.log(action.payload);
+      if (action.payload != "") {
+        const word = action.payload;
+
+        state.backnews = state.backnews.filter((elem) =>
+          elem.title.toLowerCase().includes(word.toLowerCase())
+        );
+      } else {
+        state.backnews = state.news;
+      }
     },
   },
 
@@ -122,7 +135,8 @@ export const connectSlice = createSlice({
 });
 
 //export
-export const { getNews, like, dislike, deleteNews } = connectSlice.actions;
+export const { getNews, like, dislike, deleteNews, searchNews } =
+  connectSlice.actions;
 
 // export const selectCount = (state: RootState) => state.connect.value;
 
