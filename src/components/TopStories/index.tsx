@@ -12,9 +12,9 @@ import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 type Props = { news: object[] };
 
 function TopStories({ news }: Props) {
-  let topCount: num = 0;
+  let topCount: number = 0;
   return (
-    <div className="topStories container">
+    <div className="topStories container" style={{ marginLeft: "0" }}>
       <div className="heading">
         <p> Top stories</p> <img src={ChevronRight} alt="" />
       </div>
