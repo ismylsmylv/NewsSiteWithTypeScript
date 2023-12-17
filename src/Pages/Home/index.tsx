@@ -24,19 +24,19 @@ const Home = (props: Props) => {
   const news = useAppSelector((state) => state.connect.news);
   const [data, setdata] = useState([]);
 
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getnews());
   }, []);
 
   console.log(news);
-  const dispatch = useAppDispatch();
   console.log(data);
   return (
     <div>
       {/* <Navbar /> */}
       <Welcome />
       <Feed news={news} />
-      <ForYou />
+      <ForYou news={news} />
       <YourTopics />
       <Beyond />
       <More />

@@ -5,6 +5,7 @@ import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
 import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
 import CardTemplate from "../CardTemplate";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
@@ -25,7 +26,7 @@ function TopStories({ news }: Props) {
         news.map((elem) => {
           if (elem.category == "topStory" && topCount < 3) {
             topCount++;
-            return <CardTemplate elem={elem} key={elem.id} />;
+            return <CardTemplate elem={elem} key={uuidv4()} />;
           }
         })}
       {/* <CardTemplate />

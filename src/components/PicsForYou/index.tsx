@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid white.svg";
-type Props = {};
+import { v4 as uuidv4 } from "uuid";
+type Props = { news: object[] };
 
 function PicsForYou({ news }: Props) {
   let formattedDate;
@@ -29,7 +30,7 @@ function PicsForYou({ news }: Props) {
           if (elem.category == "picked" && pickCount < 3) {
             pickCount++;
             return (
-              <div key={elem.id}>
+              <div key={uuidv4()}>
                 <div className="cardPicks">
                   <div className="left">
                     <div className="head">{elem.title}</div>

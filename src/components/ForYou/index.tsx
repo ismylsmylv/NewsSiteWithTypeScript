@@ -1,0 +1,117 @@
+import React from "react";
+import "./style.scss";
+import ChevronRight from "../../img/chevron-right-solid.svg";
+import { v4 as uuidv4 } from "uuid";
+
+type Props = { news: object[] };
+function ForYou({ news }: Props) {
+  let pickCount: number = 0;
+  let pickCountLeft: number = 0;
+  let pickCountRight: number = 0;
+  let usedId: number[] = [];
+  let formattedDateRight;
+  let formattedDateLeft;
+
+  return (
+    <div className="forYou container">
+      <div className="heading">
+        For you <img src={ChevronRight} alt="" />
+      </div>
+      <div className="info">Recommended based on your interests</div>
+
+      <div className="cards">
+        <div className="left">
+          {news &&
+            news.map((elem) => {
+              {
+                const unixTimestamp = elem.date;
+                const milliseconds = unixTimestamp * 1000;
+
+                const dateObject = new Date(milliseconds);
+
+                const year = dateObject.getFullYear();
+                const month = dateObject.getMonth() + 1;
+                const day = dateObject.getDate();
+                const hours = dateObject.getHours();
+                const minutes = dateObject.getMinutes();
+
+                formattedDateRight = `${day}/${month}/${year} ${hours}:${minutes}`;
+              }
+              if (
+                elem.category == "picked" &&
+                pickCountLeft < 3 &&
+                pickCount < 3
+              ) {
+                pickCountLeft++;
+                usedId.push(elem.id);
+                console.log(usedId);
+                return (
+                  <div key={uuidv4()}>
+                    <div className="card">
+                      <div className="left">
+                        <div className="head">picked</div>
+                        <div className="date">{formattedDateRight}</div>
+                      </div>
+                      <div className="right">
+                        <img
+                          src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="line"></div>
+                  </div>
+                );
+              }
+            })}
+        </div>
+        <div className="longLine"></div>
+        <div className="right">
+          {news &&
+            news.map((elem) => {
+              {
+                const unixTimestamp = elem.date;
+                const milliseconds = unixTimestamp * 1000;
+
+                const dateObject = new Date(milliseconds);
+
+                const year = dateObject.getFullYear();
+                const month = dateObject.getMonth() + 1;
+                const day = dateObject.getDate();
+                const hours = dateObject.getHours();
+                const minutes = dateObject.getMinutes();
+
+                formattedDateLeft = `${day}/${month}/${year} ${hours}:${minutes}`;
+              }
+              if (
+                elem.category == "picked" &&
+                pickCountRight < 3 &&
+                !usedId.includes(elem.id)
+              ) {
+                pickCountRight++;
+                return (
+                  <div key={uuidv4()}>
+                    <div className="card">
+                      <div className="left">
+                        <div className="head">picked</div>
+                        <div className="date">{formattedDateLeft}</div>
+                      </div>
+                      <div className="right">
+                        <img
+                          src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="line"></div>
+                  </div>
+                );
+              }
+            })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ForYou;

@@ -5,6 +5,7 @@ import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
 import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
 type Props = { elem: object[] };
 
@@ -56,7 +57,11 @@ function CardTemplate({ elem }: Props) {
         <div className="right">
           <div className="authors">
             {elem.authors.map((auth) => {
-              return <div className="author">{auth}</div>;
+              return (
+                <div className="author" key={uuidv4()}>
+                  {auth}
+                </div>
+              );
             })}
           </div>
           <div className="content">{elem.text}</div>

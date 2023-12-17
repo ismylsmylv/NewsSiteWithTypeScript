@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid green.svg";
 type Props = {};
 
@@ -31,7 +32,7 @@ function LocalNews({ news }: Props) {
           if (elem.category == "local" && localCount < 3) {
             localCount++;
             return (
-              <div key={elem.id}>
+              <div key={uuidv4()}>
                 <div className="cardLocal">
                   <div className="left">
                     <div className="head">{elem.title}</div>
