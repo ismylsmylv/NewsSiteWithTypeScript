@@ -2,9 +2,11 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid.svg";
+import { Link, useNavigate } from "react-router-dom";
 type Props = { news: object[] };
 
 function Beyond({ news }: Props) {
+  const navigate = useNavigate();
   let beyCount: number = 0;
 
   const url =
@@ -45,8 +47,13 @@ function Beyond({ news }: Props) {
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
+                  cursor: "pointer",
                 }}
                 key={uuidv4()}
+                onClick={() => {
+                  console.log(elem.id);
+                  navigate(`/details/${elem.id}`);
+                }}
               >
                 <div className="darkOverlay"></div>
                 <div className="cardBeyond">

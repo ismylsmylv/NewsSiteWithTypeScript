@@ -2,9 +2,11 @@ import React from "react";
 import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid.svg";
 import { v4 as uuidv4 } from "uuid";
-
+import { Link, useNavigate } from "react-router-dom";
 type Props = { news: object[] };
+
 function ForYou({ news }: Props) {
+  const navigate = useNavigate();
   let pickCount: number = 0;
   let pickCountLeft: number = 0;
   let pickCountRight: number = 0;
@@ -46,7 +48,14 @@ function ForYou({ news }: Props) {
                 console.log(usedId);
                 return (
                   <div key={uuidv4()}>
-                    <div className="card">
+                    <div
+                      className="card"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        console.log(elem.id);
+                        navigate(`/details/${elem.id}`);
+                      }}
+                    >
                       <div className="left">
                         <div className="head">{elem.title}</div>
                         <div className="date">{formattedDateRight}</div>
@@ -87,7 +96,14 @@ function ForYou({ news }: Props) {
                 pickCountRight++;
                 return (
                   <div key={uuidv4()}>
-                    <div className="card">
+                    <div
+                      className="card"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        console.log(elem.id);
+                        navigate(`/details/${elem.id}`);
+                      }}
+                    >
                       <div className="left">
                         <div className="head">{elem.title}</div>
                         <div className="date">{formattedDateLeft}</div>

@@ -9,9 +9,11 @@ import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
 import { like, dislike } from "../../redux/slices/connectSlice";
 import { useAppDispatch } from "../../redux/hooks/hooks";
+import { Link, useNavigate } from "react-router-dom";
 type Props = { elem: object[] };
 
 function CardTemplate({ elem }: Props) {
+  const navigate = useNavigate();
   let formattedDate;
   const [likes, setlikes] = useState(elem.likes);
   const [liked, setliked] = useState(false);
@@ -42,6 +44,7 @@ function CardTemplate({ elem }: Props) {
         className="card"
         onClick={() => {
           console.log(elem.id);
+          navigate(`/details/${elem.id}`);
         }}
       >
         <div className="left">

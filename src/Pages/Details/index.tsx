@@ -1,39 +1,38 @@
-import React, { useState } from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid.svg";
-import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
-import ThumbUpFill from "../../img/thumbs-up-solid.svg";
-import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
-import ThumbDownFill from "../../img/thumbs-down-solid.svg";
-import { like, dislike } from "../../redux/slices/connectSlice";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
-import { useAppDispatch } from "../../redux/hooks/hooks";
+import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
+import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
+import ThumbUpFill from "../../img/thumbs-up-solid.svg";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { dislike, like, getId } from "../../redux/slices/connectSlice";
+import "./style.scss";
+
+import { getnews } from "../../redux/slices/connectSlice";
 type Props = { elem: object[] };
 
 function Details({}: Props) {
+  const { id } = useParams();
   const dispatch = useAppDispatch();
-  let elem = {
-    title: "Global Leaders Unite for Climate Accord in Landmark Summit",
-    text: " World leaders convened in a historic summit to address the escalating climate crisis, pledging unprecedented commitments to reduce carbon emissions and transition to sustainable practices.",
-    category: "world",
-    likes: 58,
-    dislikes: 29,
-    views: 29,
-    date: 1702822668,
-    authors: "Michael Smith",
-    topic: "topStory",
-    id: 2,
-    image:
-      "https://www.unicefusa.org/sites/default/files/field-images/story-banner/2021/Advocacy%20Week%20Bkg.jpg",
-  };
-  const [likes, setlikes] = useState(elem.likes);
+  const { loading, error } = useAppSelector(
+    (state: RootState) => state.connect
+  );
+  let idNews = useAppSelector((state) => state.connect.idNews);
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    dispatch(getId(id));
+  }, []);
+  console.log("idNews", idNews);
+  const [likes, setlikes] = useState(idNews.likes);
   const [liked, setliked] = useState(false);
-  const [dislikes, setdislikes] = useState(elem.dislikes);
+  const [dislikes, setdislikes] = useState(idNews.dislikes);
   const [disliked, setdisliked] = useState(false);
   let formattedDate;
   {
-    const unixTimestamp = elem.date;
+    const unixTimestamp = idNews.date;
     const milliseconds = unixTimestamp * 1000;
     const dateObject = new Date(milliseconds);
     const year = dateObject.getFullYear();
@@ -47,13 +46,13 @@ function Details({}: Props) {
   return (
     <div className="detailsPage container">
       <div className="cardDetail">
-        <img src={elem.image} alt="" />
+        <img src={idNews.image} alt="" />
         <div className="heading">
-          <p>{elem.title}</p>
+          <p>{idNews.title}</p>
         </div>
         <div className="authors">
           <div className="author" key={uuidv4()}>
-            Author: {elem.authors}
+            Author: {idNews.authors}
           </div>
         </div>
         <div className="details">
@@ -61,14 +60,14 @@ function Details({}: Props) {
           <div className="opinions">
             <div className="dislikes detail">
               <img src={Views} alt="" style={{ width: "auto" }} />
-              {elem.views}
+              {idNews.views}
             </div>
             <div
               className="views detail like"
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(like(elem));
-                let liked = elem.likes;
+                dispatch(like(idNews));
+                let liked = idNews.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -81,8 +80,8 @@ function Details({}: Props) {
               className="likes detail dislike"
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(dislike(elem));
-                let disliked = elem.dislikes;
+                dispatch(dislike(idNews));
+                let disliked = idNews.dislikes;
                 setdislikes(disliked - 1);
                 setdisliked(true);
                 setliked(false);
@@ -94,7 +93,7 @@ function Details({}: Props) {
           </div>
         </div>
 
-        <div className="content">{elem.text}</div>
+        <div className="content">{idNews.text}</div>
       </div>
     </div>
   );

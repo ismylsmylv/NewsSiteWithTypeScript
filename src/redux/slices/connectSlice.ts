@@ -8,6 +8,7 @@ interface ConnectState {
   backnews: object[];
   loading: boolean;
   error: string;
+  idNews: object[];
 }
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   backnews: [],
   loading: false,
   error: "",
+  idNews: [],
 } as ConnectState;
 
 export const getnews = createAsyncThunk("getnews", async () => {
@@ -123,7 +125,7 @@ export const connectSlice = createSlice({
     });
     builder.addCase(getId.fulfilled, (state, action) => {
       state.loading = false;
-      state.news = action.payload;
+      state.idNews = action.payload;
       state.backnews = action.payload;
       //   console.log(state.news);
     });

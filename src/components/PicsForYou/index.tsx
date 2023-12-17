@@ -42,7 +42,14 @@ function PicsForYou({ news }: Props) {
               <div key={uuidv4()}>
                 <div className="line"></div>
 
-                <div className="cardPicks">
+                <div
+                  className="cardPicks"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    console.log(elem.id);
+                    navigate(`/details/${elem.id}`);
+                  }}
+                >
                   <div className="left">
                     <div className="head">{elem.title}</div>
                     <div className="date">{formattedDate}</div>

@@ -49,7 +49,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "entertainment" && entCount < 3) {
                 entCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">
@@ -100,7 +107,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "technology" && techCount < 3) {
                 techCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">
@@ -144,7 +158,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "science" && sciCount < 3) {
                 sciCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">
@@ -188,7 +209,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "business" && busCount < 3) {
                 busCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">
@@ -232,7 +260,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "sports" && spoCount < 3) {
                 spoCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">
@@ -277,7 +312,14 @@ function YourTopics({ news }: Props) {
               if (elem.topic == "health" && helCount < 3) {
                 helCount++;
                 return (
-                  <div key={uuidv4()}>
+                  <div
+                    key={uuidv4()}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(elem.id);
+                      navigate(`/details/${elem.id}`);
+                    }}
+                  >
                     <div className="line"></div>
                     <div className="card">
                       <div className="left">

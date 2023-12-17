@@ -48,6 +48,7 @@ function LocalNews({ news }: Props) {
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     console.log(elem.id);
+                    navigate(`/details/${elem.id}`);
                   }}
                 >
                   <div className="left">
