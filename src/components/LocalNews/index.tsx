@@ -2,14 +2,23 @@ import React from "react";
 import "./style.scss";
 import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid green.svg";
+import { useNavigate } from "react-router-dom";
+
 type Props = {};
 
 function LocalNews({ news }: Props) {
   let formattedDate;
   let localCount: number = 0;
+  const navigate = useNavigate();
   return (
     <div className="localNews" style={{ width: "100%" }}>
-      <div className="heading">
+      <div
+        className="heading"
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          navigate("/local");
+        }}
+      >
         Local News <img src={ChevronRight} alt="" />
       </div>
       {news &&

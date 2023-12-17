@@ -2,14 +2,24 @@ import React from "react";
 import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid white.svg";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 type Props = { news: object[] };
 
 function PicsForYou({ news }: Props) {
   let formattedDate;
   let pickCount: number = 0;
+  const navigate = useNavigate();
   return (
     <div className="PicsForYou" style={{ width: "100%" }}>
-      <div className="heading">Picks for you</div>
+      <div
+        className="heading"
+        // style={{ cursor: "pointer" }}
+        // onClick={() => {
+        //   navigate("/local");
+        // }}
+      >
+        Picks for you
+      </div>
       {news &&
         news.map((elem) => {
           {

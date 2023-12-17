@@ -14,9 +14,8 @@ function ForYou({ news }: Props) {
 
   return (
     <div className="forYou container">
-      <div className="heading">
-        For you <img src={ChevronRight} alt="" />
-      </div>
+      <div className="heading">For you</div>
+      {/* <img src={ChevronRight} alt="" /> */}
       <div className="info">Recommended based on your interests</div>
 
       <div className="cards">

@@ -3,6 +3,7 @@ import ChevronRight from "../../img/chevron-right-solid.svg";
 import { v4 as uuidv4 } from "uuid";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 type Props = { news: object[] };
 let entCount: number = 0;
 let techCount: number = 0;
@@ -13,7 +14,7 @@ let helCount: number = 0;
 
 function YourTopics({ news }: Props) {
   let formattedDate;
-
+  const navigate = useNavigate();
   return (
     <div className="YourTopics container">
       <div className="catHeading">Your topics</div>
@@ -21,12 +22,7 @@ function YourTopics({ news }: Props) {
       <div className="categories">
         {/* 1 */}
         <div className="category">
-          <Link
-            to={"entertainment"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"entertainment"} style={{ color: "white" }}>
             {" "}
             <div className="heading">
               Entertainment <img src={ChevronRight} alt="" />{" "}
@@ -72,14 +68,15 @@ function YourTopics({ news }: Props) {
         {/* divider */}
         {/* 2 */}
         <div className="category">
-          <Link
-            to={"tech"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"tech"} style={{ color: "white" }}>
             {" "}
-            <div className="heading">
+            <div
+              className="heading"
+              // style={{ cursor: "pointer" }}
+              // onClick={() => {
+              //   navigate("/tech");
+              // }}
+            >
               Technology <img src={ChevronRight} alt="" />{" "}
             </div>
           </Link>
@@ -121,12 +118,7 @@ function YourTopics({ news }: Props) {
         </div>
         {/* 3 */}
         <div className="category">
-          <Link
-            to={"science"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"science"} style={{ color: "white" }}>
             {" "}
             <div className="heading">
               Science <img src={ChevronRight} alt="" />{" "}
@@ -170,12 +162,7 @@ function YourTopics({ news }: Props) {
         </div>
         {/* 4 */}
         <div className="category">
-          <Link
-            to={"business"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"business"} style={{ color: "white" }}>
             {" "}
             <div className="heading">
               Business <img src={ChevronRight} alt="" />{" "}
@@ -219,12 +206,7 @@ function YourTopics({ news }: Props) {
         </div>
         {/* 5 */}
         <div className="category">
-          <Link
-            to={"sport"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"sport"} style={{ color: "white" }}>
             {" "}
             <div className="heading">
               Sports <img src={ChevronRight} alt="" />{" "}
@@ -268,12 +250,7 @@ function YourTopics({ news }: Props) {
         </div>
         {/* 6 */}
         <div className="category">
-          <Link
-            to={"health"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-          >
+          <Link to={"health"} style={{ color: "white" }}>
             {" "}
             <div className="heading">
               Health <img src={ChevronRight} alt="" />{" "}

@@ -9,13 +9,24 @@ import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
 import CardTemplate from "../CardTemplate";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
+import { useNavigate } from "react-router-dom";
+
 type Props = { news: object[] };
 
 function TopStories({ news }: Props) {
+  const navigate = useNavigate();
   let topCount: number = 0;
   return (
-    <div className="topStories container" style={{ marginLeft: "0" }}>
-      <div className="heading">
+    <div
+      className="topStories container"
+      style={{ marginLeft: "0", cursor: "pointer" }}
+    >
+      <div
+        className="heading"
+        onClick={() => {
+          navigate("/world");
+        }}
+      >
         <p> Top stories</p> <img src={ChevronRight} alt="" />
       </div>
       {/* <div className="line"></div> */}
