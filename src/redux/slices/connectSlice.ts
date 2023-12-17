@@ -83,6 +83,11 @@ export const connectSlice = createSlice({
         obj
       );
     },
+    deleteNews: (state, action) => {
+      console.log(action.payload);
+      // axios.delete(
+      //   "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id);
+    },
   },
 
   extraReducers: (builder) => {
@@ -117,7 +122,7 @@ export const connectSlice = createSlice({
 });
 
 //export
-export const { getNews, like, dislike } = connectSlice.actions;
+export const { getNews, like, dislike, deleteNews } = connectSlice.actions;
 
 // export const selectCount = (state: RootState) => state.connect.value;
 
