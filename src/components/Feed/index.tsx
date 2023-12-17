@@ -12,8 +12,8 @@ function Feed({ news }: Props) {
         <TopStories news={news} />
       </div>
       <div className="right">
-        <LocalNews />
-        <PicsForYou />
+        <LocalNews news={news} />
+        <PicsForYou news={news} />
       </div>
     </div>
   );

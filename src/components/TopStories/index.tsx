@@ -22,7 +22,9 @@ function TopStories({ news }: Props) {
 
       {news &&
         news.map((elem) => {
-          return <CardTemplate elem={elem} key={elem.id} />;
+          if (elem.category == "topStory") {
+            return <CardTemplate elem={elem} key={elem.id} />;
+          }
         })}
       {/* <CardTemplate />
       <CardTemplate /> */}
