@@ -38,7 +38,7 @@ function ForYou({ news }: Props) {
                 formattedDateRight = `${day}/${month}/${year} ${hours}:${minutes}`;
               }
               if (
-                elem.category == "picked" &&
+                elem.topic == "picked" &&
                 pickCountLeft < 3 &&
                 pickCount < 3
               ) {
@@ -84,7 +84,7 @@ function ForYou({ news }: Props) {
                 formattedDateLeft = `${day}/${month}/${year} ${hours}:${minutes}`;
               }
               if (
-                elem.category == "picked" &&
+                elem.topic == "picked" &&
                 pickCountRight < 3 &&
                 !usedId.includes(elem.id)
               ) {

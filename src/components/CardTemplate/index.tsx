@@ -33,10 +33,7 @@ function CardTemplate({ elem }: Props) {
 
       <div className="card">
         <div className="left">
-          <img
-            src="https://us.123rf.com/450wm/shushanto/shushanto2209/shushanto220900703/191842443-destruction-of-planets-concept-art-illustration-background-image.jpg?ver=6"
-            alt=""
-          />
+          <img src={elem.image} alt="" />
           <div className="heading">
             <p>{elem.title}</p>
           </div>
@@ -58,13 +55,13 @@ function CardTemplate({ elem }: Props) {
         </div>
         <div className="right">
           <div className="authors">
-            {elem.authors.map((auth) => {
-              return (
-                <div className="author" key={uuidv4()}>
-                  {auth}
-                </div>
-              );
-            })}
+            {/* {?.map((auth) => {
+              return ( */}
+            <div className="author" key={uuidv4()}>
+              {elem.authors}
+            </div>
+            {/* ); */}
+            {/* })} */}
           </div>
           <div className="content">{elem.text}</div>
         </div>

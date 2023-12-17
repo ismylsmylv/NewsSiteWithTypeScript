@@ -24,7 +24,7 @@ function TopStories({ news }: Props) {
 
       {news &&
         news.map((elem) => {
-          if (elem.category == "topStory" && topCount < 3) {
+          if (elem.topic == "topStory" && topCount < 3) {
             topCount++;
             return <CardTemplate elem={elem} key={uuidv4()} />;
           }

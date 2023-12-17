@@ -26,7 +26,7 @@ function PicsForYou({ news }: Props) {
 
             formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
           }
-          if (elem.category == "picked" && pickCount < 3) {
+          if (elem.topic == "picked" && pickCount < 3) {
             pickCount++;
             return (
               <div key={uuidv4()}>
