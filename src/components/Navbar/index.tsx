@@ -10,6 +10,7 @@ import "./style.scss";
 import { useEffect } from "react";
 
 import { getnews } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
 type Props = {};
 
 function Navbar({}: Props) {
@@ -26,6 +27,45 @@ function Navbar({}: Props) {
     dispatch(getnews());
   }, []);
   console.log("backnews", backnews);
+
+  const lowerNavbar = [
+    {
+      title: "Home",
+      url: "/",
+    },
+    {
+      title: "World",
+      url: "/world",
+    },
+    {
+      title: "Local",
+      url: "/local",
+    },
+    {
+      title: "Business",
+      url: "/business",
+    },
+    {
+      title: "Technology",
+      url: "/tech",
+    },
+    {
+      title: "Entertainment",
+      url: "/entertainment",
+    },
+    {
+      title: "Sports",
+      url: "/sport",
+    },
+    {
+      title: "Science",
+      url: "/science",
+    },
+    {
+      title: "Health",
+      url: "/health",
+    },
+  ];
   return (
     <div className="navbar">
       <div className="upperNavbar">
@@ -123,7 +163,7 @@ function Navbar({}: Props) {
                 setchecked(!checked);
               }}
             >
-              <Link to={"/entertainment"}>Entertainment</Link>
+              <Link to={"/category/entertainment"}>Entertainment</Link>
             </button>
             <button
               onClick={() => {
@@ -150,105 +190,22 @@ function Navbar({}: Props) {
         </div>
       )}
       <div className="lowerNavbar">
-        <NavLink
-          to={"/"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to={"/world"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          World
-        </NavLink>
-        <NavLink
-          to={"/local"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Local
-        </NavLink>
-        <NavLink
-          to={"/business"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Business
-        </NavLink>
-        <NavLink
-          to="/tech"
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Technology
-        </NavLink>
-        <NavLink
-          to={"/entertainment"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Entertainment
-        </NavLink>
-        <NavLink
-          to={"/sport"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Sports
-        </NavLink>
-        <NavLink
-          to={"/science"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Science
-        </NavLink>
-        <NavLink
-          to={"/health"}
-          className="link"
-          activeclassname="active"
-          style={{
-            paddingBottom: "9px",
-            color: "white",
-          }}
-        >
-          Health
-        </NavLink>
+        {lowerNavbar.map((nav) => {
+          return (
+            <NavLink
+              to={`${nav.url}`}
+              className="link"
+              activeclassname="active"
+              style={{
+                paddingBottom: "9px",
+                color: "white",
+              }}
+              key={nav.title}
+            >
+              {nav.title}
+            </NavLink>
+          );
+        })}
       </div>
     </div>
   );

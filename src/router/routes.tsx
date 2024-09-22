@@ -12,58 +12,24 @@ import Tech from "../Pages/Technology";
 import Admin from "../Pages/Admin";
 import ForYouPage from "../Pages/Foryou";
 import Details from "../Pages/Details";
+import Category from "../Pages/Category";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/world",
-        element: <World />,
-      },
-      {
-        path: "/business",
-        element: <Business />,
-      },
-      {
-        path: "/entertainment",
-        element: <Entertainment />,
-      },
-      {
-        path: "/health",
-        element: <Health />,
-      },
-      {
-        path: "/local",
-        element: <Local />,
-      },
-      {
-        path: "/science",
-        element: <Science />,
-      },
-      {
-        path: "/sport",
-        element: <Sport />,
-      },
-      {
-        path: "/tech",
-        element: <Tech />,
-      },
-      {
-        path: "/admin",
-        element: <Admin />,
-      },
-      {
-        path: "/foryou",
-        element: <ForYouPage />,
-      },
-      {
         path: "/details/:id",
         element: <Details />,
+      },
+      // category
+      {
+        path: "/:parameter",
+        element: <Category />,
+      },
+      {
+        path: "/",
+        element: <Home />,
       },
     ],
   },
