@@ -7,24 +7,20 @@ import ThumbDownFill from "../../img/thumbs-down-solid.svg";
 import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
 import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
-import { dislike, like, getId } from "../../redux/slices/connectSlice";
+import { dislike, getId, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
 
-import { getnews } from "../../redux/slices/connectSlice";
 type Props = { elem: object[] };
 
 function Details({}: Props) {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
-  let idNews = useAppSelector((state) => state.connect.idNews);
-  const [data, setdata] = useState([]);
+
+  const idNews = useAppSelector((state) => state.connect.idNews);
 
   useEffect(() => {
     dispatch(getId(id));
-  }, []);
+  }, [dispatch, id]);
   console.log("idNews", idNews);
   const [likes, setlikes] = useState(idNews.likes);
   const [liked, setliked] = useState(false);
@@ -67,7 +63,7 @@ function Details({}: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(like(idNews));
-                let liked = idNews.likes;
+                const liked = idNews.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -81,7 +77,7 @@ function Details({}: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(dislike(idNews));
-                let disliked = idNews.dislikes;
+                const disliked = idNews.dislikes;
                 setdislikes(disliked - 1);
                 setdisliked(true);
                 setliked(false);

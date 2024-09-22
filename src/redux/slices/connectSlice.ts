@@ -1,4 +1,3 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -39,9 +38,6 @@ export const connectSlice = createSlice({
   name: "connect",
   initialState,
   reducers: {
-    getNews: (state) => {
-      console.log(state.news);
-    },
     like: (state, action) => {
       console.log(action.payload);
       const updLike: number = action.payload.likes + 1;
@@ -116,7 +112,7 @@ export const connectSlice = createSlice({
     });
     builder.addCase(getnews.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload as string;
     });
     // getId
     builder.addCase(getId.pending, (state) => {
@@ -130,14 +126,13 @@ export const connectSlice = createSlice({
     });
     builder.addCase(getId.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload as string;
     });
   },
 });
 
 //export
-export const { getNews, like, dislike, deleteNews, searchNews } =
-  connectSlice.actions;
+export const { like, dislike, deleteNews, searchNews } = connectSlice.actions;
 
 // export const selectCount = (state: RootState) => state.connect.value;
 

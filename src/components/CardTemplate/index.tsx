@@ -1,16 +1,21 @@
-import React, { useState } from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid.svg";
-import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
-import ThumbUpFill from "../../img/thumbs-up-solid.svg";
-import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
-import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
-import { like, dislike } from "../../redux/slices/connectSlice";
+import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
+import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
+import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch } from "../../redux/hooks/hooks";
-import { Link, useNavigate } from "react-router-dom";
-type Props = { elem: object[] };
+import { dislike, like } from "../../redux/slices/connectSlice";
+import "./style.scss";
+type Props = {
+  elem: {
+    likes: string;
+    dislikes: string;
+    date: string;
+  };
+};
 
 function CardTemplate({ elem }: Props) {
   const navigate = useNavigate();

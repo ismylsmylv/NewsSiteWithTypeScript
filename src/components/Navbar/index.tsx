@@ -9,14 +9,15 @@ import "./style.scss";
 
 import { useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
 import { getnews } from "../../redux/slices/connectSlice";
-
 function Navbar() {
   const [checked, setchecked] = useState(false);
   const [searchText, setsearchText] = useState("");
 
   const backnews = useAppSelector((state) => state.connect.backnews);
-
+  const news = useAppSelector((state) => state.connect.news);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getnews());
@@ -87,7 +88,17 @@ function Navbar() {
             {backnews &&
               searchText != "" &&
               backnews.map((elem: { id: string; title: string }) => {
-                return <li key={elem.id}>{elem.title}</li>;
+                return (
+                  <li
+                    onClick={() => {
+                      setsearchText("");
+                      navigate(`/details/${elem.id}`);
+                    }}
+                    key={elem.id}
+                  >
+                    {elem.title}
+                  </li>
+                );
               })}
           </ul>
         </div>
