@@ -1,11 +1,12 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../redux/store/store";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface ConnectState {
   news: object[];
+
   backnews: object[];
+
   loading: boolean;
   error: string;
   idNews: object[];
@@ -38,7 +39,7 @@ export const connectSlice = createSlice({
   name: "connect",
   initialState,
   reducers: {
-    getNews: (state, action: PayloadAction<object[]>) => {
+    getNews: (state) => {
       console.log(state.news);
     },
     like: (state, action) => {
@@ -92,15 +93,13 @@ export const connectSlice = createSlice({
       );
     },
     searchNews: (state, action) => {
-      console.log(action.payload);
-      if (action.payload != "") {
-        const word = action.payload;
-
-        state.backnews = state.backnews.filter((elem) =>
-          elem.title.toLowerCase().includes(word.toLowerCase())
+      const inputValue = action.payload.toLowerCase().trim();
+      if (inputValue !== "") {
+        state.backnews = state.news.filter((elem) =>
+          elem.title.toLowerCase().includes(inputValue)
         );
       } else {
-        state.backnews = state.news;
+        state.backnews = [...state.news];
       }
     },
   },

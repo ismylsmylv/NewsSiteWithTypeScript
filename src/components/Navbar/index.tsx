@@ -10,17 +10,12 @@ import "./style.scss";
 import { useEffect } from "react";
 
 import { getnews } from "../../redux/slices/connectSlice";
-import { RootState } from "../../redux/store/store";
-type Props = {};
 
-function Navbar({}: Props) {
+function Navbar() {
   const [checked, setchecked] = useState(false);
-  const [empty, setempty] = useState("");
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
-  let backnews = useAppSelector((state) => state.connect.backnews);
-  const [data, setdata] = useState([]);
+  const [searchText, setsearchText] = useState("");
+
+  const backnews = useAppSelector((state) => state.connect.backnews);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -28,7 +23,7 @@ function Navbar({}: Props) {
   }, []);
   console.log("backnews", backnews);
 
-  const lowerNavbar = [
+  const navs = [
     {
       title: "Home",
       url: "/",
@@ -81,16 +76,17 @@ function Navbar({}: Props) {
           </div>
           <input
             type="text"
-            placeholder="Search for topics, locations & sources"
+            value={searchText}
             onChange={(e) => {
+              setsearchText(e.target.value);
               dispatch(searchNews(e.target.value));
-              setempty(e.target.value);
             }}
+            placeholder="Search for topics, locations & sources"
           />
           <ul className="results">
             {backnews &&
-              empty != "" &&
-              backnews.map((elem) => {
+              searchText != "" &&
+              backnews.map((elem: { id: string; title: string }) => {
                 return <li key={elem.id}>{elem.title}</li>;
               })}
           </ul>
@@ -123,79 +119,27 @@ function Navbar({}: Props) {
             />
           </div>
           <div className="catBtns">
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/"}>Home</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/world"}>World</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/local"}>Local</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/business"}>Business</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/tech"}>Technology</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/category/entertainment"}>Entertainment</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/sport"}>Sports</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/science"}>Science</Link>
-            </button>
-            <button
-              onClick={() => {
-                setchecked(!checked);
-              }}
-            >
-              <Link to={"/health"}>Health</Link>
-            </button>
+            {navs.map((nav) => {
+              return (
+                <button
+                  onClick={() => {
+                    setchecked(!checked);
+                  }}
+                  key={nav.title}
+                >
+                  <Link to={nav.url}>{nav.title}</Link>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
       <div className="lowerNavbar">
-        {lowerNavbar.map((nav) => {
+        {navs.map((nav) => {
           return (
             <NavLink
               to={`${nav.url}`}
               className="link"
-              activeclassname="active"
               style={{
                 paddingBottom: "9px",
                 color: "white",

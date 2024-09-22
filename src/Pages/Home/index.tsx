@@ -1,29 +1,17 @@
-import React from "react";
-import Welcome from "../../components/Welcome";
+import Beyond from "../../components/Beyond";
 import Feed from "../../components/Feed";
 import ForYou from "../../components/ForYou";
-import YourTopics from "../../components/YourTopics";
-import Beyond from "../../components/Beyond";
 import More from "../../components/More";
-import { Outlet } from "react-router-dom";
-import Navbar from "../../components/Navbar";
+import Welcome from "../../components/Welcome";
+import YourTopics from "../../components/YourTopics";
 
-import { useState } from "react";
-import { RootState } from "../../redux/store/store";
-
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-import axios from "axios";
-type Props = { news: object[] };
+import { getnews } from "../../redux/slices/connectSlice";
 
-const Home = (props: Props) => {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+const Home = () => {
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -31,7 +19,6 @@ const Home = (props: Props) => {
   }, []);
 
   console.log(news);
-  console.log(data);
   return (
     <div>
       {/* <Navbar /> */}
