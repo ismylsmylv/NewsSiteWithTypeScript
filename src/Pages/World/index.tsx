@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import CardTemplate from "../../components/CardTemplate";
-import Earth from "../../img/earth-americas-solid.svg";
 import { RootState } from "../../redux/store/store";
 
 import { useState } from "react";

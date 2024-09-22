@@ -11,6 +11,7 @@ import { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { getnews } from "../../redux/slices/connectSlice";
+import { navs } from "../../assets/categories";
 function Navbar() {
   const [checked, setchecked] = useState(false);
   const [searchText, setsearchText] = useState("");
@@ -23,44 +24,6 @@ function Navbar() {
     dispatch(getnews());
   }, []);
 
-  const navs = [
-    {
-      title: "Home",
-      url: "/",
-    },
-    {
-      title: "World",
-      url: "/world",
-    },
-    {
-      title: "Local",
-      url: "/local",
-    },
-    {
-      title: "Business",
-      url: "/business",
-    },
-    {
-      title: "Technology",
-      url: "/tech",
-    },
-    {
-      title: "Entertainment",
-      url: "/entertainment",
-    },
-    {
-      title: "Sports",
-      url: "/sport",
-    },
-    {
-      title: "Science",
-      url: "/science",
-    },
-    {
-      title: "Health",
-      url: "/health",
-    },
-  ];
   return (
     <div className="navbar">
       <div className="upperNavbar">

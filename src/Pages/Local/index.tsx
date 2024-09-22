@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import CardTemplate from "../../components/CardTemplate";
-import LocalIcon from "../../img/location-dot-solid.svg";
 
 import { useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
