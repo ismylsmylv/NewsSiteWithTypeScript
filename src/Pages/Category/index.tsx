@@ -1,17 +1,15 @@
-import React from "react";
-import "./style.scss";
 import CardTemplate from "../../components/CardTemplate";
+import "./style.scss";
 
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
-import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { navs } from "../../assets/categories";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
 
 function Category() {
   const news = useAppSelector((state) => state.connect.news);
-  const [item, setItem] = useState();
+  const [item, setItem] = useState({});
   const dispatch = useAppDispatch();
   const { parameter } = useParams();
   useEffect(() => {
