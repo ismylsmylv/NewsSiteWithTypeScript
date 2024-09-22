@@ -23,7 +23,6 @@ export const getnews = createAsyncThunk("getnews", async () => {
   const response = await axios(
     "https://6576df5f197926adf62ca419.mockapi.io/news"
   );
-  //   console.log(response);
   return response.data;
 });
 
@@ -39,7 +38,6 @@ export const connectSlice = createSlice({
   initialState,
   reducers: {
     like: (state, action) => {
-      console.log(action.payload);
       const updLike: number = action.payload.likes + 1;
       const obj = {
         authors: action.payload.authors,
@@ -54,14 +52,12 @@ export const connectSlice = createSlice({
         topic: action.payload.topic,
         views: action.payload.views9,
       };
-      console.log(obj);
       axios.put(
         "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id,
         obj
       );
     },
     dislike: (state, action) => {
-      console.log(action.payload);
       const updDislike: number = action.payload.dislikes - 1;
       const obj = {
         authors: action.payload.authors,
@@ -76,14 +72,12 @@ export const connectSlice = createSlice({
         topic: action.payload.topic,
         views: action.payload.views9,
       };
-      console.log(obj);
       axios.put(
         "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload.id,
         obj
       );
     },
     deleteNews: (state, action) => {
-      console.log(action.payload);
       axios.delete(
         "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload
       );
@@ -108,7 +102,6 @@ export const connectSlice = createSlice({
       state.loading = false;
       state.news = action.payload;
       state.backnews = action.payload;
-      //   console.log(state.news);
     });
     builder.addCase(getnews.rejected, (state, action) => {
       state.loading = false;
@@ -122,7 +115,6 @@ export const connectSlice = createSlice({
       state.loading = false;
       state.idNews = action.payload;
       state.backnews = action.payload;
-      //   console.log(state.news);
     });
     builder.addCase(getId.rejected, (state, action) => {
       state.loading = false;

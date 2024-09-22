@@ -24,7 +24,6 @@ function CardTemplate({ elem }: Props) {
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(elem.dislikes);
   const [disliked, setdisliked] = useState(false);
-  console.log(likes);
   const dispatch = useAppDispatch();
   {
     const unixTimestamp = elem.date;
@@ -39,7 +38,6 @@ function CardTemplate({ elem }: Props) {
     const minutes = dateObject.getMinutes();
 
     formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-    // console.log(formattedDate);
   }
   return (
     <div className="CardTemplate">
@@ -48,7 +46,6 @@ function CardTemplate({ elem }: Props) {
       <div
         className="card"
         onClick={() => {
-          console.log(elem.id);
           navigate(`/details/${elem.id}`);
         }}
       >

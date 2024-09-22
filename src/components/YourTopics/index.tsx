@@ -44,7 +44,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // console.log(formattedDate);
               }
               if (elem.topic == "entertainment" && entCount < 3) {
                 entCount++;
@@ -53,7 +52,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >
@@ -102,7 +100,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // console.log(formattedDate);
               }
               if (elem.topic == "technology" && techCount < 3) {
                 techCount++;
@@ -111,7 +108,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >
@@ -153,7 +149,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // console.log(formattedDate);
               }
               if (elem.topic == "science" && sciCount < 3) {
                 sciCount++;
@@ -162,7 +157,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >
@@ -204,7 +198,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // console.log(formattedDate);
               }
               if (elem.topic == "business" && busCount < 3) {
                 busCount++;
@@ -213,7 +206,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >
@@ -255,7 +247,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // // console.log(formattedDate);
               }
               if (elem.topic == "sports" && spoCount < 3) {
                 spoCount++;
@@ -264,7 +255,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >
@@ -307,7 +297,6 @@ function YourTopics({ news }: Props) {
                 const minutes = dateObject.getMinutes();
 
                 formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-                // console.log(formattedDate);
               }
               if (elem.topic == "health" && helCount < 3) {
                 helCount++;
@@ -316,7 +305,6 @@ function YourTopics({ news }: Props) {
                     key={uuidv4()}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      console.log(elem.id);
                       navigate(`/details/${elem.id}`);
                     }}
                   >

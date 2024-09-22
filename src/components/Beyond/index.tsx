@@ -35,7 +35,6 @@ function Beyond({ news }: Props) {
             const minutes = dateObject.getMinutes();
 
             formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-            // console.log(formattedDate);
           }
           if (elem.topic == "beyond" && beyCount < 3) {
             beyCount++;
@@ -51,7 +50,6 @@ function Beyond({ news }: Props) {
                 }}
                 key={uuidv4()}
                 onClick={() => {
-                  console.log(elem.id);
                   navigate(`/details/${elem.id}`);
                 }}
               >

@@ -21,7 +21,6 @@ function Details({}: Props) {
   useEffect(() => {
     dispatch(getId(id));
   }, [dispatch, id]);
-  console.log("idNews", idNews);
   const [likes, setlikes] = useState(idNews.likes);
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes);
@@ -37,7 +36,6 @@ function Details({}: Props) {
     const hours = dateObject.getHours();
     const minutes = dateObject.getMinutes();
     formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-    // console.log(formattedDate);
   }
   return (
     <div className="detailsPage container">

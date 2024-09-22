@@ -18,7 +18,6 @@ const Home = () => {
     dispatch(getnews());
   }, []);
 
-  console.log(news);
   return (
     <div>
       {/* <Navbar /> */}

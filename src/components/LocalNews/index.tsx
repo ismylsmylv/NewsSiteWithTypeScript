@@ -47,7 +47,6 @@ function LocalNews({ news }: Props) {
                   className="cardLocal"
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    console.log(elem.id);
                     navigate(`/details/${elem.id}`);
                   }}
                 >

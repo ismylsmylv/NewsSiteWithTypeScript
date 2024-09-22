@@ -29,7 +29,6 @@ function Admin({}: Props) {
   const [InpCat, setInpCat] = useState("");
   const [InpTop, setInpTop] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  console.log(news);
   return (
     <div className="admin container">
       <h1>Admin page</h1>
@@ -123,7 +122,6 @@ function Admin({}: Props) {
               InpCat,
               InpTop
             );
-            console.log(data);
             axios.post(
               "https://6576df5f197926adf62ca419.mockapi.io/news",
               data

@@ -15,7 +15,6 @@ function Welcome({}: Props) {
       setweather(res.data.current.temp_c);
       setweatherType(res.data.current.condition.text);
       setweatherImg(res.data.current.condition.icon);
-      console.log(res.data);
     });
   }, []);
 

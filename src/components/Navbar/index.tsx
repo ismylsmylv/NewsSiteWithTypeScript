@@ -22,7 +22,6 @@ function Navbar() {
   useEffect(() => {
     dispatch(getnews());
   }, []);
-  console.log("backnews", backnews);
 
   const navs = [
     {

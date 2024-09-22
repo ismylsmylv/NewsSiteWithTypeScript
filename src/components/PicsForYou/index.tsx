@@ -46,7 +46,6 @@ function PicsForYou({ news }: Props) {
                   className="cardPicks"
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    console.log(elem.id);
                     navigate(`/details/${elem.id}`);
                   }}
                 >

@@ -45,14 +45,12 @@ function ForYou({ news }: Props) {
               ) {
                 pickCountLeft++;
                 usedId.push(elem.id);
-                console.log(usedId);
                 return (
                   <div key={uuidv4()}>
                     <div
                       className="card"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
-                        console.log(elem.id);
                         navigate(`/details/${elem.id}`);
                       }}
                     >
@@ -100,7 +98,6 @@ function ForYou({ news }: Props) {
                       className="card"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
-                        console.log(elem.id);
                         navigate(`/details/${elem.id}`);
                       }}
                     >
