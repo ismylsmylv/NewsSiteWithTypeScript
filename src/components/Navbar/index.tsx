@@ -10,14 +10,14 @@ import "./style.scss";
 import { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { getnews } from "../../redux/slices/connectSlice";
 import { navs } from "../../assets/categories";
+import { getnews } from "../../redux/slices/connectSlice";
 function Navbar() {
   const [checked, setchecked] = useState(false);
   const [searchText, setsearchText] = useState("");
 
   const backnews = useAppSelector((state) => state.connect.backnews);
-  const news = useAppSelector((state) => state.connect.news);
+  // const news = useAppSelector((state) => state.connect.news);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   useEffect(() => {

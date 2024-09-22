@@ -1,16 +1,15 @@
-import React from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid.svg";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
-type Props = { news: object[] };
+import { IdNews } from "../../assets/types/news";
+import "./style.scss";
+type Props = { news: IdNews[] };
 
 function ForYou({ news }: Props) {
   const navigate = useNavigate();
-  let pickCount: number = 0;
+  const pickCount: number = 0;
   let pickCountLeft: number = 0;
   let pickCountRight: number = 0;
-  let usedId: number[] = [];
+  const usedId: number[] = [];
   let formattedDateRight;
   let formattedDateLeft;
 
@@ -44,7 +43,7 @@ function ForYou({ news }: Props) {
                 pickCount < 3
               ) {
                 pickCountLeft++;
-                usedId.push(elem.id);
+                usedId.push(Number(elem.id));
                 return (
                   <div key={uuidv4()}>
                     <div
@@ -89,7 +88,7 @@ function ForYou({ news }: Props) {
               if (
                 elem.topic == "picked" &&
                 pickCountRight < 3 &&
-                !usedId.includes(elem.id)
+                !usedId.includes(Number(elem.id))
               ) {
                 pickCountRight++;
                 return (

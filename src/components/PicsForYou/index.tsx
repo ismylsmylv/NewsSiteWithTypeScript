@@ -1,9 +1,8 @@
-import React from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid white.svg";
-import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-type Props = { news: object[] };
+import { v4 as uuidv4 } from "uuid";
+import "./style.scss";
+import { IdNews } from "../../assets/types/news";
+type Props = { news: IdNews[] };
 
 function PicsForYou({ news }: Props) {
   let formattedDate;

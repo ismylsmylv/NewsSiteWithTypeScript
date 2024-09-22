@@ -29,6 +29,19 @@
             width: 32%;
             margin-bottom: 20px;
 
+            .cards {
+                .cardContainer {
+                    display: none;
+
+                    &:nth-child(1),
+                    &:nth-child(2),
+                    &:nth-child(3) {
+
+                        display: block;
+                    }
+                }
+            }
+
             .heading {
                 display: flex;
                 align-items: center;
@@ -36,6 +49,7 @@
                 color: rgb(255, 255, 255);
                 font-size: 20px;
                 cursor: pointer;
+                text-transform: capitalize;
 
                 img {
                     margin-left: 10px;
@@ -81,6 +95,7 @@
                         height: 64px;
                         width: 64px;
                         border-radius: 12px;
+                        object-fit: cover;
                     }
                 }
             }

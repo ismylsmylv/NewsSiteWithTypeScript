@@ -6,16 +6,20 @@ import { useParams } from "react-router-dom";
 import { navs } from "../../assets/categories";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { getnews } from "../../redux/slices/connectSlice";
-
+interface item {
+  title: string;
+  bg: string;
+  icon: string;
+}
 function Category() {
   const news = useAppSelector((state) => state.connect.news);
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState<item>();
   const dispatch = useAppDispatch();
   const { parameter } = useParams();
   useEffect(() => {
     dispatch(getnews());
     const found = navs.filter((nav) => nav.url === "/" + parameter);
-    setItem(found[0]);
+    setItem(found[0] as item);
     console.log(found[0]);
   }, [dispatch, parameter]);
   return (

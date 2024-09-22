@@ -10,9 +10,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { dislike, getId, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
 
-type Props = { elem: object[] };
-
-function Details({}: Props) {
+function Details() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
 

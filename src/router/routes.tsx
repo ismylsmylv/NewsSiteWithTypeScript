@@ -3,6 +3,7 @@ import App from "../App";
 import Category from "../Pages/Category";
 import Details from "../Pages/Details";
 import Home from "../Pages/Home";
+import Admin from "../Pages/Admin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },

@@ -32,7 +32,7 @@ export const navs = [
   },
   {
     title: "Technology",
-    url: "/tech",
+    url: "/technology",
     icon: Chip,
     bg: "#0f47ff",
   },
@@ -44,7 +44,7 @@ export const navs = [
   },
   {
     title: "Sports",
-    url: "/sport",
+    url: "/sports",
     icon: Ball,
     bg: "#ff8d21",
   },

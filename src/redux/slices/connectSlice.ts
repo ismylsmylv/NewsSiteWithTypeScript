@@ -1,15 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
-interface ConnectState {
-  news: object[];
-
-  backnews: object[];
-
-  loading: boolean;
-  error: string;
-  idNews: object[];
-}
+import { ConnectState } from "../../assets/types/news";
 
 const initialState = {
   news: [],
@@ -17,7 +8,7 @@ const initialState = {
   loading: false,
   error: "",
   idNews: [],
-} as ConnectState;
+} as unknown as ConnectState;
 
 export const getnews = createAsyncThunk("getnews", async () => {
   const response = await axios(

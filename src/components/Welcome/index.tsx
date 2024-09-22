@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./style.scss";
-import Sun from "../../img/weatherTransparent.png";
 import axios from "axios";
-type Props = {};
+import { useEffect, useState } from "react";
+import "./style.scss";
 
-function Welcome({}: Props) {
+function Welcome() {
   const [weather, setweather] = useState(0);
   const [weatherType, setweatherType] = useState("");
   const [weatherImg, setweatherImg] = useState("");
@@ -18,7 +16,6 @@ function Welcome({}: Props) {
     });
   }, []);
 
-  const welcomeDate = new Date();
   const Months = {
     0: "January",
     1: "February",
@@ -46,7 +43,6 @@ function Welcome({}: Props) {
     const day = date.getDate();
     const dayName = Days[date.getDay()];
     const month = Months[date.getMonth()];
-    const year = date.getFullYear();
 
     return `${dayName}, ${month} ${day}`;
   }

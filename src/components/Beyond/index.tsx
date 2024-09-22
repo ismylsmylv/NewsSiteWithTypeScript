@@ -1,16 +1,14 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid.svg";
-import { Link, useNavigate } from "react-router-dom";
-type Props = { news: object[] };
+import "./style.scss";
+import { IdNews } from "../../assets/types/news";
+type Props = { news: IdNews[] };
 
 function Beyond({ news }: Props) {
   const navigate = useNavigate();
   let beyCount: number = 0;
 
-  const url =
-    "https://i0.wp.com/www.alphr.com/wp-content/uploads/2022/08/How-to-Find-Out-Where-a-Picture-Was-Taken-1.png?fit=1200%2C675&ssl=1";
   return (
     <div className="beyond container">
       <div className="heading">

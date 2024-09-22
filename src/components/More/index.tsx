@@ -1,9 +1,7 @@
-import React from "react";
-import "./style.scss";
 import { Link } from "react-router-dom";
-type Props = {};
+import "./style.scss";
 
-function More({}: Props) {
+function More() {
   return (
     <div className="more">
       <h1>Get more news based on your interests</h1>

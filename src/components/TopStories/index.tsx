@@ -1,17 +1,11 @@
-import React from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid.svg";
-import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
-import ThumbUpFill from "../../img/thumbs-up-solid.svg";
-import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
-import ThumbDownFill from "../../img/thumbs-down-solid.svg";
-import { v4 as uuidv4 } from "uuid";
-import Views from "../../img/eye-regular.svg";
-import CardTemplate from "../CardTemplate";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import ChevronRight from "../../img/chevron-right-solid.svg";
+import CardTemplate from "../CardTemplate";
+import "./style.scss";
+import { IdNews } from "../../assets/types/news";
 
-type Props = { news: object[] };
+type Props = { news: IdNews[] };
 
 function TopStories({ news }: Props) {
   const navigate = useNavigate();

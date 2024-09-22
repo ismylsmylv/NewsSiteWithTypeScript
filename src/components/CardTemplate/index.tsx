@@ -9,12 +9,9 @@ import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch } from "../../redux/hooks/hooks";
 import { dislike, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
+import { IdNews } from "../../assets/types/news";
 type Props = {
-  elem: {
-    likes: string;
-    dislikes: string;
-    date: string;
-  };
+  elem: IdNews;
 };
 
 function CardTemplate({ elem }: Props) {
@@ -65,7 +62,7 @@ function CardTemplate({ elem }: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(like(elem));
-                let liked = elem.likes;
+                const liked = elem.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -79,7 +76,7 @@ function CardTemplate({ elem }: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(dislike(elem));
-                let disliked = elem.dislikes;
+                const disliked = elem.dislikes;
                 setdislikes(disliked - 1);
                 setdisliked(true);
                 setliked(false);
