@@ -31,16 +31,23 @@ function Category() {
         <div
           className="imgCont"
           style={{
-            backgroundColor: item?.bg,
+            backgroundColor: item?.bg ?? "brown",
           }}
         >
-          <img src={item?.icon} alt="" />
+          {item?.icon ? (
+            <img src={item?.icon} alt="" />
+          ) : (
+            <h2>{Array.from(parameter as string)[0]}</h2>
+          )}
         </div>
         <h1>{parameter}</h1>
       </div>
       <div className="cards ">
         {news.map((elem) => {
           return elem.category === parameter && <CardTemplate elem={elem} />;
+        })}
+        {news.map((elem) => {
+          return elem.topic === parameter && <CardTemplate elem={elem} />;
         })}
       </div>
     </div>

@@ -31,7 +31,7 @@ function YourTopics({ news }: Props) {
         {topics.map((topic) => {
           return (
             <div className="category">
-              <Link to={"entertainment"} style={{ color: "white" }}>
+              <Link to={`/${topic}`} style={{ color: "white" }}>
                 {" "}
                 <div className="heading">
                   {topic} <img src={ChevronRight} alt="" />{" "}
