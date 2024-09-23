@@ -4,12 +4,27 @@ import ChevronRight from "../../img/chevron-right-solid.svg";
 import CardTemplate from "../CardTemplate";
 import "./style.scss";
 import { IdNews } from "../../assets/types/news";
+import { useEffect, useState } from "react";
 
 type Props = { news: IdNews[] };
 
 function TopStories({ news }: Props) {
   const navigate = useNavigate();
   let topCount: number = 0;
+  const [sorted, setsorted] = useState([] as IdNews[]);
+  useEffect(() => {
+    const newNews = [...news];
+    const sorted = newNews.sort((a, b) => {
+      if (a.views > b.views) {
+        return -1;
+      } else if (a.views < b.views) {
+        return 1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    setsorted(sorted);
+  }, [news]);
   return (
     <div
       className="topStories container"
@@ -28,8 +43,8 @@ function TopStories({ news }: Props) {
       {/* cards */}
 
       {news &&
-        news.map((elem) => {
-          if (elem.topic == "topStory" && topCount < 3) {
+        sorted.map((elem) => {
+          if (topCount < 3) {
             topCount++;
             return <CardTemplate elem={elem} key={uuidv4()} />;
           }

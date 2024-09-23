@@ -1,8 +1,9 @@
+import { IdNews } from "../../assets/types/news";
 import LocalNews from "../LocalNews";
 import PicsForYou from "../PicsForYou";
 import TopStories from "../TopStories";
 import "./style.scss";
-type Props = { news: object[] };
+type Props = { news: IdNews[] };
 
 function Feed({ news }: Props) {
   return (
