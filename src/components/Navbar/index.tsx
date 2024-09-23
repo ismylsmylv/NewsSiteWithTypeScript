@@ -1,3 +1,5 @@
+import { IoSearch } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Bars from "../../img/bars-solid.svg";
@@ -35,7 +37,7 @@ function Navbar() {
         </div>
         <div className="searchBar">
           <div className="icon">
-            <img src={SearchIcon} alt="" />
+            <IoSearch size={20} color="#B4B6B7" />
           </div>
           <input
             type="text"
@@ -46,6 +48,20 @@ function Navbar() {
             }}
             placeholder="Search for topics, locations & sources"
           />
+          <div
+            className="clear"
+            style={{
+              opacity: searchText ? 1 : 0,
+            }}
+          >
+            <IoCloseOutline
+              size={20}
+              color="#B4B6B7"
+              onClick={() => {
+                setsearchText("");
+              }}
+            />
+          </div>
           <ul className="results">
             {backnews &&
               searchText != "" &&

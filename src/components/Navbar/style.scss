@@ -23,7 +23,6 @@
         .searchBar,
         .searchMobileBar {
             background-color: #3C4043;
-            height: 45px;
             width: 40%;
             display: flex;
             align-items: center;
@@ -59,6 +58,20 @@
                 }
             }
 
+            .clear {
+                height: 35px;
+                width: 35px;
+                border-radius: 999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(95, 95, 95);
+                }
+            }
         }
 
         .admin {
