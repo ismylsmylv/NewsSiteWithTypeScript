@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { dislike, getId, like } from "../../redux/slices/connectSlice";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 import "./style.scss";
 
 function Details() {
@@ -15,7 +17,9 @@ function Details() {
 
   useEffect(() => {
     dispatch(getId(id));
-  }, [dispatch, id]);
+    setlikes(idNews.likes);
+    setdislikes(idNews.dislikes);
+  }, [dispatch, id, idNews.dislikes, idNews.likes]);
   const [likes, setlikes] = useState(idNews.likes);
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes);
@@ -32,6 +36,10 @@ function Details() {
   const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
   return (
     <div className="detailsPage container">
+      <Tooltip id="like" />
+      <Tooltip id="dislike" />
+      <Tooltip id="views" />
+
       <div className="cardDetail">
         <img src={idNews.image} alt="" />
         <div className="heading">
@@ -45,11 +53,17 @@ function Details() {
             <div className="date">{formattedDate}</div>
           </div>
           <div className="right">
-            <div className="views detail">
+            <div
+              className="views detail"
+              data-tooltip-id="views"
+              data-tooltip-content={`Viewed ${idNews.views} times`}
+            >
               <FaRegEye size={20} />
               {idNews.views}
             </div>
             <div
+              data-tooltip-id="like"
+              data-tooltip-content={disliked ? "Liked" : "Like"}
               className="likes detail like"
               onClick={(e) => {
                 e.stopPropagation();
@@ -64,6 +78,8 @@ function Details() {
               {likes}
             </div>
             <div
+              data-tooltip-id="dislike"
+              data-tooltip-content={disliked ? "Disliked" : "Dislike"}
               className="dislikes detail dislike"
               onClick={(e) => {
                 e.stopPropagation();
