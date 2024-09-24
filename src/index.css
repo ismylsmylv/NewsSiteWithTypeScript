@@ -10,8 +10,9 @@ a {
   text-decoration: none;
 }
 .container {
-  width: 60%;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 10px;
 }
 body {
   background-color: #292a2d;
@@ -31,5 +32,8 @@ body {
   }
   h2 {
     font-size: 20px !important;
+  }
+  .container {
+    padding: 0px;
   }
 }

@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
+import { BiDislike, BiLike, BiSolidDislike, BiSolidLike } from "react-icons/bi";
+import { FaRegEye } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Views from "../../img/eye-regular.svg";
-import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
-import ThumbDownFill from "../../img/thumbs-down-solid.svg";
-import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
-import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { dislike, getId, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
@@ -23,39 +20,37 @@ function Details() {
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes);
   const [disliked, setdisliked] = useState(false);
-  let formattedDate;
-  {
-    const unixTimestamp = idNews.date;
-    const milliseconds = unixTimestamp * 1000;
-    const dateObject = new Date(milliseconds);
-    const year = dateObject.getFullYear();
-    const month = dateObject.getMonth() + 1;
-    const day = dateObject.getDate();
-    const hours = dateObject.getHours();
-    const minutes = dateObject.getMinutes();
-    formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-  }
+
+  const unixTimestamp = idNews.date;
+  const milliseconds = unixTimestamp * 1000;
+  const dateObject = new Date(milliseconds);
+  const year = dateObject.getFullYear();
+  const month = dateObject.getMonth() + 1;
+  const day = dateObject.getDate();
+  const hours = dateObject.getHours();
+  const minutes = dateObject.getMinutes();
+  const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
   return (
     <div className="detailsPage container">
       <div className="cardDetail">
         <img src={idNews.image} alt="" />
         <div className="heading">
-          <p>{idNews.title}</p>
-        </div>
-        <div className="authors">
-          <div className="author" key={uuidv4()}>
-            Author: {idNews.authors}
-          </div>
+          <h1>{idNews.title}</h1>
         </div>
         <div className="details">
-          <div className="date detail">{formattedDate}</div>
-          <div className="opinions">
-            <div className="dislikes detail">
-              <img src={Views} alt="" style={{ width: "auto" }} />
+          <div className="left">
+            <p className="author" key={uuidv4()}>
+              Author: {idNews.authors}
+            </p>
+            <div className="date">{formattedDate}</div>
+          </div>
+          <div className="right">
+            <div className="views detail">
+              <FaRegEye size={20} />
               {idNews.views}
             </div>
             <div
-              className="views detail like"
+              className="likes detail like"
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(like(idNews));
@@ -65,11 +60,11 @@ function Details() {
                 setdisliked(false);
               }}
             >
-              <img src={liked ? ThumbUpFill : ThumbUpEmp} alt="" />
+              {liked ? <BiSolidLike size={20} /> : <BiLike size={20} />}
               {likes}
             </div>
             <div
-              className="likes detail dislike"
+              className="dislikes detail dislike"
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(dislike(idNews));
@@ -79,12 +74,15 @@ function Details() {
                 setliked(false);
               }}
             >
-              <img src={disliked ? ThumbDownFill : ThumbDownEmp} alt="" />
+              {disliked ? (
+                <BiSolidDislike size={20} />
+              ) : (
+                <BiDislike size={20} />
+              )}
               {dislikes}
             </div>
           </div>
         </div>
-
         <div className="content">{idNews.text}</div>
       </div>
     </div>
