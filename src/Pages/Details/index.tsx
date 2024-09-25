@@ -8,12 +8,14 @@ import { dislike, getId, like } from "../../redux/slices/connectSlice";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import "./style.scss";
+import Loader from "../../components/Loader";
 
 function Details() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
 
   const idNews = useAppSelector((state) => state.connect.idNews);
+  const loading = useAppSelector((state) => state.connect.loading);
 
   useEffect(() => {
     dispatch(getId(id));
@@ -36,10 +38,11 @@ function Details() {
   const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
   return (
     <div className="detailsPage container">
+      {loading && <Loader />}
+
       <Tooltip id="like" />
       <Tooltip id="dislike" />
       <Tooltip id="views" />
-
       <div className="cardDetail">
         <img src={idNews.image} alt="" />
         <div className="heading">
