@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { IdNews } from "../../assets/types/news";
 import Views from "../../img/eye-regular.svg";
 import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
 import ThumbDownFill from "../../img/thumbs-down-solid.svg";
@@ -9,7 +10,6 @@ import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch } from "../../redux/hooks/hooks";
 import { dislike, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
-import { IdNews } from "../../assets/types/news";
 type Props = {
   elem: IdNews;
 };
