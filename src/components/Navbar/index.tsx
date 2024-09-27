@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { navs } from "../../assets/categories";
 import { getnews } from "../../redux/slices/connectSlice";
+import { useLocation } from "react-router-dom";
 function Navbar() {
   const [checked, setchecked] = useState(false);
   const [searchText, setsearchText] = useState("");
@@ -22,9 +23,11 @@ function Navbar() {
   // const news = useAppSelector((state) => state.connect.news);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const location = useLocation();
   useEffect(() => {
     dispatch(getnews());
-  }, []);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [dispatch, location]);
 
   return (
     <div className="navbar">
@@ -113,6 +116,7 @@ function Navbar() {
                 <button
                   onClick={() => {
                     setchecked(!checked);
+                    window.scrollTo(0, 0);
                   }}
                   key={nav.title}
                 >
