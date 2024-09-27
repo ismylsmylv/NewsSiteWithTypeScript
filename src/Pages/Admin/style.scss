@@ -139,5 +139,24 @@
         object-fit: cover;
     }
 
+    .btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
 
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            text-transform: capitalize;
+        }
+
+        .active {
+            background-color: #1772FF;
+        }
+    }
 }
