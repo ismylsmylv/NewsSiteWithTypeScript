@@ -49,7 +49,7 @@ export const connectSlice = createSlice({
       );
     },
     dislike: (state, action) => {
-      const updDislike: number = action.payload.dislikes - 1;
+      const updDislike: number = action.payload.dislikes + 1;
       const obj = {
         authors: action.payload.authors,
         category: action.payload.category,

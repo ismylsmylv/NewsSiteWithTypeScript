@@ -88,7 +88,7 @@ function Details() {
                 e.stopPropagation();
                 dispatch(dislike(idNews));
                 const disliked = idNews.dislikes;
-                setdislikes(disliked - 1);
+                setdislikes(disliked + 1);
                 setdisliked(true);
                 setliked(false);
               }}
