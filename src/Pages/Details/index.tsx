@@ -102,7 +102,10 @@ function Details() {
             </div>
           </div>
         </div>
-        <div className="content">{idNews.text}</div>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: idNews.text }}
+        ></div>
       </div>
     </div>
   );
