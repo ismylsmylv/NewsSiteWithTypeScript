@@ -10,6 +10,16 @@
         display: flex;
         align-items: start;
         // justify-content: space-between;
+        cursor: pointer;
+
+        &:hover {
+            .left {
+                .heading {
+
+                    color: white;
+                }
+            }
+        }
 
         .left {
             width: 40%;
@@ -34,10 +44,13 @@
                 font-size: 20px;
                 color: rgb(227, 227, 227);
                 padding-right: 10px;
+                transition: 200ms linear;
 
                 p {
                     text-align: left !important;
                 }
+
+
             }
 
             .details {
