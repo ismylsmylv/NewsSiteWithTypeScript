@@ -4,7 +4,8 @@ import ForYou from "../../components/ForYou";
 import More from "../../components/More";
 import Welcome from "../../components/Welcome";
 import YourTopics from "../../components/YourTopics";
-
+import { db } from "../../firebase/config.js";
+import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 
@@ -17,9 +18,21 @@ const Home = () => {
   useEffect(() => {
     dispatch(getnews());
   }, []);
-
+  const fetchData = async () => {
+    const querySnapshot = await getDocs(collection(db, "news"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
+  };
   return (
     <div>
+      <button
+        onClick={() => {
+          fetchData();
+        }}
+      >
+        fetch
+      </button>
       {/* <Navbar /> */}
       <Welcome />
       <Feed news={news} />
