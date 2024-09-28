@@ -53,7 +53,7 @@ function Details() {
             <p className="author" key={uuidv4()}>
               Author: {idNews.authors}
             </p>
-            <div className="date">{formattedDate}</div>
+            <div className="date">{formattedDate} </div>
           </div>
           <div className="right">
             <div

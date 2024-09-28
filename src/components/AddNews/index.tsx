@@ -1,4 +1,6 @@
-import axios from "axios";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/config.js"; // Firestore instance
+
 import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import ReactQuill from "react-quill";
@@ -16,21 +18,28 @@ function AddNews() {
       <Formik
         initialValues={{
           title: "",
-          authors: [""],
+          authors: "",
           image: "",
           category: "",
           topic: "",
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            axios.post("https://6576df5f197926adf62ca419.mockapi.io/news", {
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            const date = new Date();
+            const formattedDate = date.toDateString().slice(4, 15);
+            console.log(formattedDate);
+            await addDoc(collection(db, "news"), {
               ...values,
               text: textArea,
+              date: date,
+            }).then(() => {
+              console.log("posted");
             });
             dispatch(getnews());
-            setSubmitting(false);
-          }, 400);
+          } catch (error) {
+            console.error("Error adding document: ", error);
+          }
+          setSubmitting(false);
         }}
       >
         {({ isSubmitting }) => (
