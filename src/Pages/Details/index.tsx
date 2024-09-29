@@ -22,10 +22,9 @@ function Details() {
     dispatch(getId(id));
     setlikes(idNews.likes);
     setdislikes(idNews.dislikes);
-    // TODO FIX VIEW COUNT
-    // setTimeout(() => {
-    //   dispatch(view(idNews));
-    // }, 1000);
+    setTimeout(() => {
+      dispatch(view(idNews));
+    }, 1000);
   }, [dispatch, id, idNews.dislikes, idNews.likes]);
   const [likes, setlikes] = useState(idNews.likes ?? 0);
   const [liked, setliked] = useState(false);
