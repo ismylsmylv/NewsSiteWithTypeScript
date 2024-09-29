@@ -57,6 +57,16 @@
             justify-content: space-between;
             width: 100%;
 
+            &:hover {
+                .left {
+
+                    .head {
+
+                        color: white;
+                    }
+                }
+            }
+
             .left {
                 padding: 0;
                 display: flex;
@@ -67,6 +77,8 @@
                 .head {
                     color: rgb(227, 227, 227);
                     width: 100%;
+                    transition: 200ms linear;
+
                 }
 
                 .date {
@@ -86,6 +98,7 @@
                     height: 64px;
                     width: 64px;
                     border-radius: 12px;
+                    object-fit: cover;
                 }
             }
         }
