@@ -21,15 +21,15 @@ function Details() {
     dispatch(getId(id));
     setlikes(idNews.likes);
     setdislikes(idNews.dislikes);
+    setTimeout(() => {
+      dispatch(view(idNews));
+    }, 1000);
   }, [dispatch, id, idNews.dislikes, idNews.likes]);
   const [likes, setlikes] = useState(idNews.likes ?? 0);
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes ?? 0);
   const [disliked, setdisliked] = useState(false);
-  setTimeout(() => {
-    console.log("log");
-    dispatch(view(idNews));
-  }, 1000);
+
   const unixTimestamp = idNews.date;
   const milliseconds = unixTimestamp * 1000;
   const dateObject = new Date(milliseconds);

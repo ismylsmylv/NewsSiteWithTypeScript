@@ -85,29 +85,31 @@
 
 
 @media (max-width:700px) {
+    .detailsPage {
 
-    .details {
-        flex-direction: column;
-        align-items: start !important;
-    }
+        .details {
+            flex-direction: column;
+            align-items: start !important;
+        }
 
-    .detail {
-        margin-bottom: 15px;
-    }
+        .detail {
+            margin-bottom: 15px;
+        }
 
-    .date {
-        flex-direction: column;
-        margin-bottom: 5px !important;
+        .date {
+            flex-direction: column;
+            margin-bottom: 5px !important;
 
-    }
+        }
 
-    .heading p {
-        font-size: 20px;
-    }
+        .heading p {
+            font-size: 20px;
+        }
 
-    .content,
-    .date,
-    .detail {
-        font-size: 15px;
+        .content,
+        .date,
+        .detail {
+            font-size: 15px;
+        }
     }
 }

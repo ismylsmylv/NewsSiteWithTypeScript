@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BiDislike, BiLike, BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 import { IdNews } from "../../assets/types/news";
 import Views from "../../img/eye-regular.svg";
@@ -10,6 +11,7 @@ import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch } from "../../redux/hooks/hooks";
 import { dislike, like } from "../../redux/slices/connectSlice";
 import "./style.scss";
+import { FaRegEye } from "react-icons/fa";
 type Props = {
   elem: IdNews;
 };
@@ -48,14 +50,12 @@ function CardTemplate({ elem }: Props) {
       >
         <div className="left">
           <img src={elem.image} alt="" />
-          <div className="heading">
-            <p>{elem.title}</p>
-          </div>
+          <h2 className="heading">{elem.title}</h2>
           <div className="details">
             <div className="date detail">{formattedDate}</div>
             <div className="dislikes detail">
-              <img src={Views} alt="" style={{ width: "auto" }} />
-              {elem.views}
+              <FaRegEye size={20} />
+              {elem.views ?? 0}
             </div>
             <div
               className="views detail like"
@@ -68,8 +68,8 @@ function CardTemplate({ elem }: Props) {
                 setdisliked(false);
               }}
             >
-              <img src={liked ? ThumbUpFill : ThumbUpEmp} alt="" />
-              {likes}
+              <BiLike size={20} />
+              {likes ?? 0}
             </div>
             <div
               className="likes detail dislike"
@@ -82,8 +82,8 @@ function CardTemplate({ elem }: Props) {
                 setliked(false);
               }}
             >
-              <img src={disliked ? ThumbDownFill : ThumbDownEmp} alt="" />
-              {dislikes}
+              <BiDislike size={20} />
+              {dislikes ?? 0}
             </div>
           </div>
         </div>

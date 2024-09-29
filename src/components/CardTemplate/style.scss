@@ -1,4 +1,6 @@
 .CardTemplate {
+    max-width: 700px;
+
     .line {
         width: 100%;
         height: 1px;
@@ -11,6 +13,7 @@
         align-items: start;
         // justify-content: space-between;
         cursor: pointer;
+        gap: 10px;
 
         &:hover {
             .left {
@@ -26,8 +29,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
 
             img {
                 border-radius: 18px;
@@ -45,18 +46,15 @@
                 color: rgb(227, 227, 227);
                 padding-right: 10px;
                 transition: 200ms linear;
-
-                p {
-                    text-align: left !important;
-                }
+                text-align: left;
 
 
             }
 
             .details {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                gap: 10px;
+
                 flex-wrap: wrap;
                 width: 100%;
                 color: rgb(196, 199, 197);
@@ -67,6 +65,8 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    gap: 5px;
+                    width: fit-content;
 
                     img {
                         height: 15px;
@@ -86,7 +86,6 @@
         }
 
         .right {
-            padding-left: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
