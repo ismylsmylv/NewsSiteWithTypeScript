@@ -8,10 +8,11 @@ import YourTopics from "../../components/YourTopics";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 
 import { getnews } from "../../redux/slices/connectSlice";
+import Loader from "../../components/Loader";
 
 const Home = () => {
   const news = useAppSelector((state) => state.connect.news);
-
+  const loading = useAppSelector((state) => state.connect.loading);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getnews());
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <div>
+      {loading && <Loader />}
       {/* <Navbar /> */}
       <Welcome />
       <Feed news={news} />

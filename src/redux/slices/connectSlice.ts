@@ -46,12 +46,17 @@ export const connectSlice = createSlice({
   reducers: {
     like: (state, action) => {
       const docRef = doc(db, "news", action.payload.id);
-      updateDoc(docRef, { likes: action.payload.likes + 1 });
+      const likeCount = action.payload.likes ? action.payload.likes + 1 : 1;
+      updateDoc(docRef, { likes: likeCount });
     },
     dislike: (state, action) => {
       const docRef = doc(db, "news", action.payload.id);
-      updateDoc(docRef, { dislikes: action.payload.dislikes + 1 });
+      const dislikeCount = action.payload.dislikes
+        ? action.payload.dislikes + 1
+        : 1;
+      updateDoc(docRef, { dislikes: dislikeCount });
     },
+
     deleteNews: (state, action) => {
       const docRef = doc(db, "news", action.payload);
       deleteDoc(docRef);

@@ -22,9 +22,9 @@ function Details() {
     setlikes(idNews.likes);
     setdislikes(idNews.dislikes);
   }, [dispatch, id, idNews.dislikes, idNews.likes]);
-  const [likes, setlikes] = useState(idNews.likes);
+  const [likes, setlikes] = useState(idNews.likes ?? 0);
   const [liked, setliked] = useState(false);
-  const [dislikes, setdislikes] = useState(idNews.dislikes);
+  const [dislikes, setdislikes] = useState(idNews.dislikes ?? 0);
   const [disliked, setdisliked] = useState(false);
 
   const unixTimestamp = idNews.date;
@@ -59,10 +59,10 @@ function Details() {
             <div
               className="views detail"
               data-tooltip-id="views"
-              data-tooltip-content={`Viewed ${idNews.views} times`}
+              data-tooltip-content={`Viewed ${idNews.views ?? 0} times`}
             >
               <FaRegEye size={20} />
-              {idNews.views}
+              {idNews.views ?? 0}
             </div>
             <div
               data-tooltip-id="like"
@@ -70,8 +70,8 @@ function Details() {
               className="likes detail like"
               onClick={(e) => {
                 e.stopPropagation();
+                const liked = idNews.likes ?? 0;
                 dispatch(like(idNews));
-                const liked = idNews.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -87,7 +87,7 @@ function Details() {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(dislike(idNews));
-                const disliked = idNews.dislikes;
+                const disliked = idNews.dislikes ?? 0;
                 setdislikes(disliked + 1);
                 setdisliked(true);
                 setliked(false);
