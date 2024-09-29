@@ -5,8 +5,11 @@
     align-items: center;
     color: white;
     padding: 15px 0;
+    gap: 10px;
 
     .left {
+        width: fit-content;
+
         h1 {
             font-weight: 400;
             font-size: 28px;
@@ -23,9 +26,11 @@
     }
 
     .right {
+        width: fit-content;
+
         .weather {
             border-radius: 18px;
-            height: 75px;
+            height: auto;
             // width: 230px;
             background-color: #1F1F1F;
 
@@ -36,7 +41,7 @@
             img {
                 height: 50%;
                 width: 50%;
-                object-fit: contain;
+                object-fit: cover;
             }
         }
     }
