@@ -3,23 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 import { topics } from "../../assets/topics";
 import { IdNews } from "../../assets/types/news";
 import ChevronRight from "../../img/chevron-right-solid.svg";
+import { formatDate } from "../../utils/functions.js";
 import "./style.scss";
 type Props = { news: IdNews[] };
 
 function YourTopics({ news }: Props) {
-  function formattedDate(elem: IdNews) {
-    const unixTimestamp = elem.date;
-    const milliseconds = unixTimestamp * 1000;
-
-    const dateObject = new Date(milliseconds);
-
-    const year = dateObject.getFullYear();
-    const month = dateObject.getMonth() + 1;
-    const day = dateObject.getDate();
-    const hours = dateObject.getHours();
-    const minutes = dateObject.getMinutes();
-    return `${day}/${month}/${year} ${hours}:${minutes}`;
-  }
   const navigate = useNavigate();
   return (
     <div className="YourTopics container">
@@ -55,7 +43,9 @@ function YourTopics({ news }: Props) {
                           <div className="card">
                             <div className="left">
                               <div className="head">{elem.title}</div>
-                              <div className="date">{formattedDate(elem)}</div>
+                              <div className="date">
+                                {formatDate(elem?.date)}
+                              </div>
                             </div>
                             <div className="right">
                               <img src={elem?.image} alt="" />
