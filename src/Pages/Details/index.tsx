@@ -54,10 +54,10 @@ function Details() {
             <div
               className="views detail"
               data-tooltip-id="views"
-              data-tooltip-content={`Viewed ${idNews.views ?? 0} times`}
+              data-tooltip-content={`Viewed ${idNews.views ?? 1} times`}
             >
               <FaRegEye size={20} />
-              {idNews.views ?? 0}
+              {idNews.views ?? 1}
             </div>
             <div
               data-tooltip-id="like"

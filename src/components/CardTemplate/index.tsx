@@ -3,7 +3,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { IdNews } from "../../assets/types/news";
-import { formatDate } from "../../utils/functions.js";
+import { formatDate, removeTags } from "../../utils/functions.js";
 import "./style.scss";
 type Props = {
   elem: IdNews;
@@ -46,7 +46,7 @@ function CardTemplate({ elem }: Props) {
               {elem.authors}
             </div>
           </div>
-          <div className="content">{elem.text}</div>
+          <div className="content">{removeTags(elem.text)}</div>
         </div>
       </div>
     </div>
