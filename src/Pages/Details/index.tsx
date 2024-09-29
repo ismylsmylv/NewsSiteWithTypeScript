@@ -8,6 +8,7 @@ import { dislike, getId, like, view } from "../../redux/slices/connectSlice";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import "./style.scss";
+import { formatDate } from "../../utils/functions.js";
 import Loader from "../../components/Loader";
 
 function Details() {
@@ -21,24 +22,16 @@ function Details() {
     dispatch(getId(id));
     setlikes(idNews.likes);
     setdislikes(idNews.dislikes);
-    setTimeout(() => {
-      dispatch(view(idNews));
-    }, 1000);
+    // TODO FIX VIEW COUNT
+    // setTimeout(() => {
+    //   dispatch(view(idNews));
+    // }, 1000);
   }, [dispatch, id, idNews.dislikes, idNews.likes]);
   const [likes, setlikes] = useState(idNews.likes ?? 0);
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes ?? 0);
   const [disliked, setdisliked] = useState(false);
 
-  const unixTimestamp = idNews.date;
-  const milliseconds = unixTimestamp * 1000;
-  const dateObject = new Date(milliseconds);
-  const year = dateObject.getFullYear();
-  const month = dateObject.getMonth() + 1;
-  const day = dateObject.getDate();
-  const hours = dateObject.getHours();
-  const minutes = dateObject.getMinutes();
-  const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
   return (
     <div className="detailsPage container">
       {loading && <Loader />}
@@ -56,7 +49,7 @@ function Details() {
             <p className="author" key={uuidv4()}>
               Author: {idNews.authors}
             </p>
-            <div className="date">{formattedDate} </div>
+            <div className="date">{formatDate(idNews.date)} </div>
           </div>
           <div className="right">
             <div

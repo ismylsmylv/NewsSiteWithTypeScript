@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid.svg";
 import "./style.scss";
 import { IdNews } from "../../assets/types/news";
+import { formatDate } from "../../utils/functions.js";
 type Props = { news: IdNews[] };
 
 function Beyond({ news }: Props) {
@@ -18,22 +19,6 @@ function Beyond({ news }: Props) {
       <div className="info">Notable stories and conversation starters</div>
       {news &&
         news.map((elem) => {
-          let formattedDate;
-
-          {
-            const unixTimestamp = elem.date;
-            const milliseconds = unixTimestamp * 1000;
-
-            const dateObject = new Date(milliseconds);
-
-            const year = dateObject.getFullYear();
-            const month = dateObject.getMonth() + 1;
-            const day = dateObject.getDate();
-            const hours = dateObject.getHours();
-            const minutes = dateObject.getMinutes();
-
-            formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-          }
           if (elem.topic == "beyond" && beyCount < 3) {
             beyCount++;
             return (
@@ -56,7 +41,7 @@ function Beyond({ news }: Props) {
                   <div className="left">
                     <div className="head">{elem.title}</div>
                     <div className="footer">
-                      <div className="date">{formattedDate}</div>
+                      <div className="date">{formatDate(elem.date)}</div>
                       <div className="author" style={{ display: "flex" }}>
                         {/* {" "}
                         {elem.authors.map((auth) => {
