@@ -56,6 +56,12 @@ export const connectSlice = createSlice({
         : 1;
       updateDoc(docRef, { dislikes: dislikeCount });
     },
+    view: (state, action) => {
+      console.log(action.payload);
+      const docRef = doc(db, "news", action.payload.id);
+      const viewCount = action.payload.views ? action.payload.views + 1 : 1;
+      updateDoc(docRef, { views: viewCount });
+    },
 
     deleteNews: (state, action) => {
       const docRef = doc(db, "news", action.payload);
@@ -103,6 +109,7 @@ export const connectSlice = createSlice({
 });
 
 // Export actions
-export const { like, dislike, deleteNews, searchNews } = connectSlice.actions;
+export const { like, dislike, deleteNews, searchNews, view } =
+  connectSlice.actions;
 
 export default connectSlice.reducer;

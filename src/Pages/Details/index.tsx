@@ -4,7 +4,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
-import { dislike, getId, like } from "../../redux/slices/connectSlice";
+import { dislike, getId, like, view } from "../../redux/slices/connectSlice";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import "./style.scss";
@@ -26,7 +26,10 @@ function Details() {
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes ?? 0);
   const [disliked, setdisliked] = useState(false);
-
+  setTimeout(() => {
+    console.log("log");
+    dispatch(view(idNews));
+  }, 1000);
   const unixTimestamp = idNews.date;
   const milliseconds = unixTimestamp * 1000;
   const dateObject = new Date(milliseconds);
