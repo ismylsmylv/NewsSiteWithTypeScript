@@ -1,8 +1,10 @@
+import { Timestamp } from "firebase/firestore";
+
 export interface IdNews {
   id: string;
   likes: number;
   dislikes: number;
-  date: number;
+  date: Timestamp;
   image: string;
   title: string;
   authors: [];

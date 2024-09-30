@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { IdNews } from "../../assets/types/news";
 import "./style.scss";
-import { formatDate } from "../../utils/functions.js";
+import { formatDate } from "../../utils/functions.ts";
 type Props = { news: IdNews[] };
 
 function ForYou({ news }: Props) {

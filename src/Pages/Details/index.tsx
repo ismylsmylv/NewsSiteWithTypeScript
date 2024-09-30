@@ -8,7 +8,7 @@ import { dislike, getId, like, view } from "../../redux/slices/connectSlice";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import "./style.scss";
-import { formatDate } from "../../utils/functions.js";
+import { formatDate } from "../../utils/functions.ts";
 import Loader from "../../components/Loader";
 
 function Details() {

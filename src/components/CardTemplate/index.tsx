@@ -3,7 +3,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { IdNews } from "../../assets/types/news";
-import { formatDate, removeTags } from "../../utils/functions.js";
+import { formatDate, removeTags } from "../../utils/functions.ts";
 import "./style.scss";
 type Props = {
   elem: IdNews;

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid.svg";
 import "./style.scss";
 import { IdNews } from "../../assets/types/news";
-import { formatDate } from "../../utils/functions.js";
+import { formatDate } from "../../utils/functions.ts";
 type Props = { news: IdNews[] };
 
 function Beyond({ news }: Props) {
