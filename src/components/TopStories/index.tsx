@@ -5,7 +5,7 @@ import CardTemplate from "../CardTemplate";
 import "./style.scss";
 import { IdNews } from "../../assets/types/news";
 import { useEffect, useState } from "react";
-
+import { FaChevronRight } from "react-icons/fa6";
 type Props = { news: IdNews[] };
 
 function TopStories({ news }: Props) {
@@ -33,7 +33,7 @@ function TopStories({ news }: Props) {
           navigate("/world");
         }}
       >
-        <p> Top stories</p> <img src={ChevronRight} alt="" />
+        <p> Top stories</p> <FaChevronRight size={16} />
       </div>
       {/* <div className="line"></div> */}
 

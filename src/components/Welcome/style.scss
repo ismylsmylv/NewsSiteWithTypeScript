@@ -41,13 +41,21 @@
             gap: 10px;
 
             img {
-                height: 25%;
-                width: 25%;
+                height: 40px;
+                width: 40px;
                 object-fit: cover;
             }
 
             p {
                 width: fit-content;
+            }
+
+            .celcius {
+                font-size: 14px;
+            }
+
+            .type {
+                font-weight: 500;
             }
         }
     }

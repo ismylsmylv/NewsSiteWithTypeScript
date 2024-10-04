@@ -10,6 +10,7 @@ import { Tooltip } from "react-tooltip";
 import "./style.scss";
 import { formatDate } from "../../utils/functions.ts";
 import Loader from "../../components/Loader";
+import CardTemplate from "../../components/CardTemplate/index.tsx";
 
 function Details() {
   const { id } = useParams();
@@ -17,6 +18,7 @@ function Details() {
 
   const idNews = useAppSelector((state) => state.connect.idNews);
   const loading = useAppSelector((state) => state.connect.loading);
+  const news = useAppSelector((state) => state.connect.news);
 
   useEffect(() => {
     dispatch(getId(id));
@@ -32,77 +34,84 @@ function Details() {
   const [disliked, setdisliked] = useState(false);
 
   return (
-    <div className="detailsPage container">
-      {loading && <Loader />}
+    <>
+      <div className="detailsPage container">
+        {loading && <Loader />}
 
-      <Tooltip id="like" />
-      <Tooltip id="dislike" />
-      <Tooltip id="views" />
-      <div className="cardDetail">
-        <img src={idNews.image} alt="" />
-        <div className="heading">
-          <h1>{idNews.title}</h1>
-        </div>
-        <div className="details">
-          <div className="left">
-            <p className="author" key={uuidv4()}>
-              Author: {idNews.authors}
-            </p>
-            <div className="date">{formatDate(idNews.date)} </div>
+        <Tooltip id="like" />
+        <Tooltip id="dislike" />
+        <Tooltip id="views" />
+        <div className="cardDetail">
+          <img src={idNews.image} alt="" />
+          <div className="heading">
+            <h1>{idNews.title}</h1>
           </div>
-          <div className="right">
-            <div
-              className="views detail"
-              data-tooltip-id="views"
-              data-tooltip-content={`Viewed ${idNews.views ?? 1} times`}
-            >
-              <FaRegEye size={20} />
-              {idNews.views ?? 1}
+          <div className="details">
+            <div className="left">
+              <p className="author" key={uuidv4()}>
+                Author: {idNews.authors}
+              </p>
+              <div className="date">{formatDate(idNews.date)} </div>
             </div>
-            <div
-              data-tooltip-id="like"
-              data-tooltip-content={disliked ? "Liked" : "Like"}
-              className="likes detail like"
-              onClick={(e) => {
-                e.stopPropagation();
-                const liked = idNews.likes ?? 0;
-                dispatch(like(idNews));
-                setlikes(liked + 1);
-                setliked(true);
-                setdisliked(false);
-              }}
-            >
-              {liked ? <BiSolidLike size={20} /> : <BiLike size={20} />}
-              {likes}
-            </div>
-            <div
-              data-tooltip-id="dislike"
-              data-tooltip-content={disliked ? "Disliked" : "Dislike"}
-              className="dislikes detail dislike"
-              onClick={(e) => {
-                e.stopPropagation();
-                dispatch(dislike(idNews));
-                const disliked = idNews.dislikes ?? 0;
-                setdislikes(disliked + 1);
-                setdisliked(true);
-                setliked(false);
-              }}
-            >
-              {disliked ? (
-                <BiSolidDislike size={20} />
-              ) : (
-                <BiDislike size={20} />
-              )}
-              {dislikes}
+            <div className="right">
+              <div
+                className="views detail"
+                data-tooltip-id="views"
+                data-tooltip-content={`Viewed ${idNews.views ?? 1} times`}
+              >
+                <FaRegEye size={20} />
+                {idNews.views ?? 1}
+              </div>
+              <div
+                data-tooltip-id="like"
+                data-tooltip-content={disliked ? "Liked" : "Like"}
+                className="likes detail like"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const liked = idNews.likes ?? 0;
+                  dispatch(like(idNews));
+                  setlikes(liked + 1);
+                  setliked(true);
+                  setdisliked(false);
+                }}
+              >
+                {liked ? <BiSolidLike size={20} /> : <BiLike size={20} />}
+                {likes}
+              </div>
+              <div
+                data-tooltip-id="dislike"
+                data-tooltip-content={disliked ? "Disliked" : "Dislike"}
+                className="dislikes detail dislike"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(dislike(idNews));
+                  const disliked = idNews.dislikes ?? 0;
+                  setdislikes(disliked + 1);
+                  setdisliked(true);
+                  setliked(false);
+                }}
+              >
+                {disliked ? (
+                  <BiSolidDislike size={20} />
+                ) : (
+                  <BiDislike size={20} />
+                )}
+                {dislikes}
+              </div>
             </div>
           </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: idNews.text }}
+          ></div>
         </div>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: idNews.text }}
-        ></div>
       </div>
-    </div>
+      {news?.map((elem) => {
+        return (
+          elem.category == idNews?.category && <CardTemplate elem={elem} />
+        );
+      })}
+    </>
   );
 }
 

@@ -1,6 +1,5 @@
 import { IdNews } from "../../assets/types/news";
-import LocalNews from "../LocalNews";
-import PicsForYou from "../PicsForYou";
+import NewsList from "../NewsList";
 import TopStories from "../TopStories";
 import "./style.scss";
 type Props = { news: IdNews[] };
@@ -12,8 +11,18 @@ function Feed({ news }: Props) {
         <TopStories news={news} />
       </div>
       <div className="right">
-        <LocalNews news={news} />
-        <PicsForYou news={news} />
+        <NewsList
+          news={news}
+          heading="Local News"
+          color="#a596cf"
+          category="local"
+        />
+        <NewsList
+          news={news}
+          heading="World Today"
+          color="#75b8b1"
+          category="world"
+        />
       </div>
     </div>
   );

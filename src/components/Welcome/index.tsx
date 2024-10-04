@@ -63,7 +63,8 @@ function Welcome() {
         >
           <img src={weatherImg} alt="" />
           <p>
-            {weatherType} {weather}°C
+            <div className="type">{weatherType}</div>
+            <div className="celcius"> {weather}°C</div>
           </p>
         </a>
       </div>
