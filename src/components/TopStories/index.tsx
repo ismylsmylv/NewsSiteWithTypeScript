@@ -26,10 +26,7 @@ function TopStories({ news }: Props) {
     setsorted(sorted);
   }, [news]);
   return (
-    <div
-      className="topStories container"
-      style={{ marginLeft: "0", cursor: "pointer" }}
-    >
+    <div className="topStories " style={{ marginLeft: "0", cursor: "pointer" }}>
       <div
         className="heading"
         onClick={() => {

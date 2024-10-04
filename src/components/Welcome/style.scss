@@ -30,18 +30,24 @@
 
         .weather {
             border-radius: 18px;
-            height: auto;
+            height: 60px;
+            width: auto;
             // width: 230px;
             background-color: #1F1F1F;
-
+            padding: 0 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
 
             img {
-                height: 50%;
-                width: 50%;
+                height: 25%;
+                width: 25%;
                 object-fit: cover;
+            }
+
+            p {
+                width: fit-content;
             }
         }
     }
@@ -61,7 +67,7 @@
 
         .left,
         .right {
-            margin: 0 auto !important;
+            // margin: 0 auto !important;
         }
 
         .weather {
