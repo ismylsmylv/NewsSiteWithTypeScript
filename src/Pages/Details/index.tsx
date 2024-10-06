@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { BiDislike, BiLike, BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
+import { IoMdShare } from "react-icons/io";
 import { useParams } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 import { v4 as uuidv4 } from "uuid";
+import CardTemplate from "../../components/CardTemplate/index.tsx";
+import Loader from "../../components/Loader";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { dislike, getId, like, view } from "../../redux/slices/connectSlice";
-import "react-tooltip/dist/react-tooltip.css";
-import { Tooltip } from "react-tooltip";
-import "./style.scss";
 import { formatDate } from "../../utils/functions.ts";
-import Loader from "../../components/Loader";
-import CardTemplate from "../../components/CardTemplate/index.tsx";
+import "./style.scss";
 
 function Details() {
   const { id } = useParams();
@@ -32,6 +33,7 @@ function Details() {
   const [liked, setliked] = useState(false);
   const [dislikes, setdislikes] = useState(idNews.dislikes ?? 0);
   const [disliked, setdisliked] = useState(false);
+  const [isShare, setIsShared] = useState(false);
 
   return (
     <>
@@ -39,12 +41,33 @@ function Details() {
         {loading && <Loader />}
 
         <Tooltip id="like" />
+        <Tooltip id="share" />
         <Tooltip id="dislike" />
         <Tooltip id="views" />
         <div className="cardDetail">
           <img src={idNews.image} alt="" />
           <div className="heading">
             <h1>{idNews.title}</h1>
+
+            <IoMdShare
+              size={30}
+              data-tooltip-id="share"
+              data-tooltip-content={
+                isShare ? "Copied to clipboard" : "Share this news"
+              }
+              style={{ cursor: "pointer", outline: "none" }}
+              onClick={() => {
+                setIsShared(true);
+                navigator.clipboard.writeText(
+                  import.meta.env.VITE_APP_BASE_URL + "/details/" + idNews.id
+                );
+              }}
+              onMouseLeave={() => {
+                setTimeout(() => {
+                  setIsShared(false);
+                }, 200);
+              }}
+            />
           </div>
           <div className="details">
             <div className="left">
@@ -105,12 +128,16 @@ function Details() {
             dangerouslySetInnerHTML={{ __html: idNews.text }}
           ></div>
         </div>
+        <div className="similar container">
+          <h2>Similar news</h2>
+          {news?.map((elem) => {
+            return (
+              elem.category == idNews?.category &&
+              elem.id != idNews?.id && <CardTemplate elem={elem} />
+            );
+          })}
+        </div>
       </div>
-      {news?.map((elem) => {
-        return (
-          elem.category == idNews?.category && <CardTemplate elem={elem} />
-        );
-      })}
     </>
   );
 }
