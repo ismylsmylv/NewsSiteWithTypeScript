@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { deleteNews, getnews } from "../../redux/slices/connectSlice";
+import { useNavigate } from "react-router-dom";
 
 function NewsTable() {
   const news = useAppSelector((state) => state.connect.news);
@@ -12,12 +13,14 @@ function NewsTable() {
     "likes",
     "dislikes",
     "views",
+    "edit",
     "delete",
   ];
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getnews());
   }, []);
+  const navigate = useNavigate();
   return (
     <div className="table">
       <div className="table-header">
@@ -45,6 +48,18 @@ function NewsTable() {
                 <div className="table-data">{elem.likes}</div>
                 <div className="table-data">{elem.dislikes}</div>
                 <div className="table-data">{elem.views}</div>
+                <div className="table-data">
+                  <button
+                    style={{
+                      backgroundColor: "blue",
+                    }}
+                    onClick={() => {
+                      navigate(`/edit/${elem.id}`);
+                    }}
+                  >
+                    Edit
+                  </button>
+                </div>
                 <div className="table-data">
                   <button
                     onClick={() => {

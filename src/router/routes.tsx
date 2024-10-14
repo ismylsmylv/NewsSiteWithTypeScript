@@ -4,6 +4,7 @@ import Category from "../Pages/Category";
 import Details from "../Pages/Details";
 import Home from "../Pages/Home";
 import Admin from "../Pages/Admin";
+import EditNews from "../Pages/Edit";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/details/:id",
-        element: <Details elem={[]} />,
+        element: <Details />,
+      },
+      {
+        path: "/edit/:id",
+        element: <EditNews />,
       },
       // category
       {

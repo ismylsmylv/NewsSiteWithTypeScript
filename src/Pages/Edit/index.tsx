@@ -1,43 +1,53 @@
-import { addDoc, collection } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase/config.ts"; // Firestore instance
 
 import { Field, Form, Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useAppDispatch } from "../../redux/hooks/hooks";
-import { getnews } from "../../redux/slices/connectSlice";
+import { useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getId, getnews } from "../../redux/slices/connectSlice";
 import "./style.scss";
-function AddNews() {
+function EditNews() {
   const [textArea, setTextArea] = useState("");
   const dispatch = useAppDispatch();
-  return (
-    <div className="AddNews">
-      <h2>Add new</h2>
+  const { id } = useParams();
 
+  const idNews = useAppSelector((state) => state.connect.idNews);
+  useEffect(() => {
+    dispatch(getId(id as string));
+    setTextArea(idNews.text);
+  }, [idNews.text, dispatch, id]);
+  return (
+    <div className="EditNews container">
+      <h2>Add new</h2>
       <Formik
+        enableReinitialize={true}
         initialValues={{
-          title: "",
-          authors: "",
-          image: "",
-          category: "",
-          topic: "",
+          title: idNews?.title,
+          authors: idNews?.authors,
+          image: idNews?.image,
+          category: idNews?.category,
+          topic: idNews?.topic,
         }}
         onSubmit={async (values, { setSubmitting }) => {
           try {
             const date = new Date();
-            const formattedDate = date.toDateString().slice(4, 15);
-            console.log(formattedDate);
-            await addDoc(collection(db, "news"), {
+
+            const docRef = doc(db, "news", id as string);
+
+            await updateDoc(docRef, {
               ...values,
               text: textArea,
               date: date,
             }).then(() => {
-              console.log("posted");
+              console.log("News updated successfully");
             });
+
             dispatch(getnews());
           } catch (error) {
-            console.error("Error adding document: ", error);
+            console.log(`Error updating news, ${error}`);
           }
           setSubmitting(false);
         }}
@@ -92,4 +102,4 @@ function AddNews() {
   );
 }
 
-export default AddNews;
+export default EditNews;

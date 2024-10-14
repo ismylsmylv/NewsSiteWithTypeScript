@@ -7,7 +7,7 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { db } from "../../firebase/config.js";
+import { db } from "../../firebase/config.ts";
 import { ConnectState } from "../../assets/types/news";
 
 const initialState = {
@@ -30,7 +30,7 @@ export const getnews = createAsyncThunk("getnews", async () => {
 });
 
 // Fetch specific news by ID from Firestore
-export const getId = createAsyncThunk("getId", async (id) => {
+export const getId = createAsyncThunk("getId", async (id: string) => {
   const docRef = doc(db, "news", id);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {

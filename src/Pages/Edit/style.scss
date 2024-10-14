@@ -1,0 +1,73 @@
+.EditNews {
+    width: 100%;
+
+    h2 {
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    form {
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            transition: 300ms linear;
+            border: 1px solid #B4B6B7;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 500;
+
+            &:active {
+                background-color: #363738;
+                color: #3C4043;
+            }
+
+            &::placeholder {
+                color: #B4B6B7;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        option {
+            background-color: #363738;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1772FF;
+            cursor: pointer;
+            margin: 0 auto;
+            margin-top: 10px;
+            color: white;
+        }
+    }
+
+    .textarea {
+        width: 100%;
+        background-color: #E2E2E3;
+    }
+
+    .dropdowns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+
+}
