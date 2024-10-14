@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import ChevronRight from "../../img/chevron-right-solid.svg";
-import CardTemplate from "../CardTemplate";
-import "./style.scss";
-import { IdNews } from "../../assets/types/news";
 import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { IdNews } from "../../assets/types/news";
+import CardTemplate from "../CardTemplate";
+import "./style.scss";
 type Props = { news: IdNews[] };
 
 function TopStories({ news }: Props) {

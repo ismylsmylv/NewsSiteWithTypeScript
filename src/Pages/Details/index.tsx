@@ -22,7 +22,7 @@ function Details() {
   const news = useAppSelector((state) => state.connect.news);
 
   useEffect(() => {
-    dispatch(getId(id));
+    dispatch(getId(id as string));
     setlikes(idNews.likes);
     setdislikes(idNews.dislikes);
     setTimeout(() => {
