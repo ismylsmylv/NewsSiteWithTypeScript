@@ -37,7 +37,7 @@ Make sure you have the following installed:
 
 ```bash  
 git clone https://github.com/ismylsmylv/NewsSiteWithTypeScript
-cd news-website  
+cd NewsSiteWithTypeScript  
 ```  
 
 ### Install Dependencies  
